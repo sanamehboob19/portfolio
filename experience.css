@@ -1,0 +1,893 @@
+/* =========================================================
+   SANA MEHBOOB — EXPERIENCE PAGE STYLESHEET (experience.css)
+   Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
+   Matches index.css, about.css, projects.css, apps.css & skills.css
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- COLOR SYSTEM & DESIGN VARIABLES --- */
+:root {
+    /* Soft Pearl Mist Base (No flat white) */
+    --bg-base: #f7f4fc;
+    --bg-surface: #efe9f8;
+    --bg-card: rgba(255, 255, 255, 0.90);
+    --bg-card-hover: #ffffff;
+    
+    /* Deep Rich Contrast Elements */
+    --dark-surface: #150e26;
+    --dark-card: #1c1236;
+    
+    /* Royal Purple & Crimson System */
+    --purple-primary: #7c3aed;
+    --purple-light: #a78bfa;
+    --purple-soft: rgba(124, 58, 237, 0.1);
+    
+    --crimson-primary: #e11d48;
+    --crimson-rose: #f43f5e;
+    --crimson-soft: rgba(225, 29, 72, 0.1);
+    
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
+    --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
+    --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
+    --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
+    
+    /* Typography Colors */
+    --text-heading: #1a122c;
+    --text-body: #504663;
+    --text-muted: #796e8e;
+    --text-white: #ffffff;
+
+    /* Borders & Shadows */
+    --border-subtle: #e3d8f1;
+    --border-hover: rgba(225, 29, 72, 0.35);
+    --border-accent: rgba(124, 58, 237, 0.35);
+
+    --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
+    --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
+    --shadow-glow: 0 10px 30px rgba(225, 29, 72, 0.28);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-body);
+    line-height: 1.65;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
+        radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(167, 139, 250, 0.10), transparent 50%);
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================================
+   NAVBAR (Frosted Glass)
+========================================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(247, 244, 252, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-container {
+    width: min(1200px, 92%);
+    height: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.65rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--text-heading);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-menu li a {
+    color: var(--text-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: var(--purple-primary);
+}
+
+.nav-menu li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: var(--grad-primary);
+    border-radius: var(--radius-full);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-heading);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* =========================================================
+   EXPERIENCE HERO SECTION
+========================================================= */
+.experience-hero {
+    position: relative;
+    padding: 95px 0 85px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.experience-hero-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.eyebrow, .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.experience-hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+    color: var(--text-heading);
+    margin-bottom: 22px;
+}
+
+.experience-hero-content h1 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-hero-content p {
+    font-size: 1.12rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 580px;
+}
+
+/* Hero Side Mark */
+.experience-hero-mark {
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 38px 34px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    position: relative;
+}
+
+.mark-line {
+    width: 5px;
+    height: 65px;
+    background: var(--grad-primary);
+    border-radius: var(--radius-full);
+}
+
+.experience-hero-mark strong {
+    font-size: 3.6rem;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-hero-mark span {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.35;
+}
+
+/* =========================================================
+   EXPERIENCE INTRO
+========================================================= */
+.experience-intro {
+    padding: 85px 0;
+    background: rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.experience-intro-container {
+    width: min(880px, 92%);
+    margin: 0 auto;
+}
+
+.experience-intro h2 {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -1px;
+    margin: 8px 0 18px;
+}
+
+.experience-intro h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-intro p {
+    color: var(--text-body);
+    font-size: 1.1rem;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   EXPERIENCE TIMELINE CARDS
+========================================================= */
+.experience-section {
+    padding: 105px 0;
+}
+
+.experience-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+/* Main Experience Card */
+.experience-item {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 42px 40px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    gap: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-item:hover {
+    transform: translateY(-6px);
+    background: var(--bg-card-hover);
+    border-color: rgba(124, 58, 237, 0.38);
+    box-shadow: var(--shadow-prominent);
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--grad-primary);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.experience-item:hover::before {
+    opacity: 1;
+}
+
+/* Number Badge */
+.experience-number {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(225, 29, 72, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.22);
+    color: var(--purple-primary);
+    font-size: 1.25rem;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.experience-item:hover .experience-number {
+    background: var(--grad-primary);
+    color: var(--text-white);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+}
+
+/* Top Section (Title & Period Pill) */
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.experience-type {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.experience-top h3 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -0.5px;
+}
+
+.experience-company {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--purple-primary);
+    margin-top: 2px;
+}
+
+.experience-period {
+    padding: 7px 16px;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+}
+
+.experience-description {
+    color: var(--text-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 900px;
+}
+
+/* =========================================================
+   FEATURED EXPERIENCE (SOFTWARE HOUSE SUB-BLOCKS)
+========================================================= */
+.featured-experience {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(246, 235, 255, 0.75));
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.featured-experience::before {
+    opacity: 1;
+}
+
+.experience-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.detail-block {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 22px 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+.detail-block:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.detail-block span {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--purple-primary);
+    font-size: 0.75rem;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    margin-bottom: 10px;
+}
+
+.detail-block h4 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+}
+
+.detail-block p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   EXPERIENCE TAGS (Skill & Technology Pills)
+========================================================= */
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.experience-tags span {
+    padding: 8px 18px;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+.experience-tags span:hover {
+    background: var(--grad-primary);
+    border-color: transparent;
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(225, 29, 72, 0.3);
+}
+
+/* =========================================================
+   PERSONAL PROJECTS MINI CARDS (Vector Clock & Puzzle)
+========================================================= */
+.personal-projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.mini-project {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+.mini-project:hover {
+    border-color: rgba(225, 29, 72, 0.35);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.mini-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(225, 29, 72, 0.1);
+    color: var(--crimson-primary);
+    font-size: 0.85rem;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.mini-project h4 {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+
+.mini-project p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   LESSONS LEARNED (4-COLUMN GRID)
+========================================================= */
+.experience-lessons {
+    padding: 100px 0;
+    background: rgba(239, 233, 248, 0.6);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.lessons-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.lessons-heading {
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.lessons-heading h2 {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -1px;
+    margin-top: 8px;
+}
+
+.lessons-heading h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.lesson-card {
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 34px 26px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.lesson-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: var(--shadow-prominent);
+}
+
+.lesson-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--purple-primary);
+    font-size: 0.9rem;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
+    transition: var(--transition);
+}
+
+.lesson-card:hover .lesson-number {
+    background: var(--grad-primary);
+    color: var(--text-white);
+}
+
+.lesson-card h3 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+}
+
+.lesson-card p {
+    color: var(--text-body);
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   EXPERIENCE CTA (DEEP PLUM CONTRAST BOX)
+========================================================= */
+.experience-cta {
+    padding: 75px 0 110px;
+}
+
+.cta-container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    background: var(--grad-dark);
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    border-radius: 36px;
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 65px rgba(25, 10, 45, 0.25);
+}
+
+.cta-container .section-label {
+    color: var(--crimson-rose);
+}
+
+.cta-container h2 {
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+    font-weight: 900;
+    color: var(--text-white);
+    letter-spacing: -1px;
+    margin: 12px 0 18px;
+}
+
+.cta-container h2 span {
+    background: linear-gradient(135deg, #c084fc 0%, #fb7185 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-container p {
+    color: #c7bed8;
+    font-size: 1.05rem;
+    max-width: 540px;
+    margin: 0 auto 34px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 32px;
+    background: var(--grad-primary);
+    color: var(--text-white);
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--grad-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(225, 29, 72, 0.45);
+}
+
+/* =========================================================
+   FOOTER (MIDNIGHT PLUM)
+========================================================= */
+.footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 55px 0 30px;
+    background: #120b22;
+    color: var(--text-white);
+}
+
+.footer-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand a {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-white);
+}
+
+.footer-brand p {
+    color: #8f82a9;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    max-width: 380px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: #c2b7d6;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.footer-links a:hover {
+    color: var(--crimson-rose);
+}
+
+.footer-copy {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.footer-copy p {
+    color: #7b6f95;
+    font-size: 0.82rem;
+}
+
+/* =========================================================
+   COMPREHENSIVE RESPONSIVENESS (Laptops, Tablets & Phones)
+========================================================= */
+
+/* --- TABLETS & SMALL LAPTOPS (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .experience-hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .experience-hero-content {
+        text-align: center;
+    }
+
+    .experience-hero-content p {
+        margin: 0 auto;
+    }
+
+    .experience-hero-mark {
+        max-width: 420px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .experience-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lessons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- MOBILE LANDSCAPE & TABLETS (<= 768px) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: rgba(247, 244, 252, 0.98);
+        flex-direction: column;
+        padding: 25px 0;
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-md);
+        display: none;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .experience-hero {
+        padding: 65px 0;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        padding: 30px 24px;
+        gap: 20px;
+    }
+
+    .experience-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .experience-top {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .experience-details {
+        grid-template-columns: 1fr;
+    }
+
+    .personal-projects {
+        grid-template-columns: 1fr;
+    }
+
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* --- SMALL MOBILE PHONES (<= 480px) --- */
+@media (max-width: 480px) {
+    .experience-hero-content h1 {
+        font-size: 2.4rem;
+        letter-spacing: -1px;
+    }
+
+    .experience-top h3 {
+        font-size: 1.4rem;
+    }
+
+    .experience-hero-mark strong {
+        font-size: 2.8rem;
+    }
+
+    .experience-intro h2,
+    .lessons-heading h2 {
+        font-size: 2rem;
+    }
+
+    .cta-container {
+        padding: 50px 20px;
+    }
+
+    .cta-container h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}

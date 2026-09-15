@@ -1,0 +1,943 @@
+/* =========================================================
+   SANA MEHBOOB — PRODUCTION APPS STYLESHEET (apps.css)
+   Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
+   Matches index.css, about.css & projects.css | Fully Responsive
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- COLOR SYSTEM & DESIGN VARIABLES --- */
+:root {
+    /* Soft Pearl Mist Base (No flat white) */
+    --bg-base: #f7f4fc;
+    --bg-surface: #efe9f8;
+    --bg-card: rgba(255, 255, 255, 0.90);
+    --bg-card-hover: #ffffff;
+    
+    /* Deep Rich Contrast Elements */
+    --dark-surface: #150e26;
+    --dark-card: #1c1236;
+    
+    /* Royal Purple & Crimson System */
+    --purple-primary: #7c3aed;
+    --purple-light: #a78bfa;
+    --purple-soft: rgba(124, 58, 237, 0.1);
+    
+    --crimson-primary: #e11d48;
+    --crimson-rose: #f43f5e;
+    --crimson-soft: rgba(225, 29, 72, 0.1);
+    
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
+    --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
+    --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
+    --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
+    
+    /* Typography Colors */
+    --text-heading: #1a122c;
+    --text-body: #504663;
+    --text-muted: #796e8e;
+    --text-white: #ffffff;
+
+    /* Borders & Shadows */
+    --border-subtle: #e3d8f1;
+    --border-hover: rgba(225, 29, 72, 0.35);
+    --border-accent: rgba(124, 58, 237, 0.35);
+
+    --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
+    --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
+    --shadow-glow: 0 10px 30px rgba(225, 29, 72, 0.28);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-body);
+    line-height: 1.65;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
+        radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(167, 139, 250, 0.10), transparent 50%);
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================================
+   NAVBAR (Frosted Glass)
+========================================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(247, 244, 252, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-container {
+    width: min(1200px, 92%);
+    height: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.65rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--text-heading);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-menu li a {
+    color: var(--text-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: var(--purple-primary);
+}
+
+.nav-menu li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: var(--grad-primary);
+    border-radius: var(--radius-full);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-heading);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* =========================================================
+   APPS HERO SECTION & STATS
+========================================================= */
+.apps-hero {
+    position: relative;
+    padding: 95px 0 85px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.apps-hero-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.eyebrow, .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.apps-hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+    color: var(--text-heading);
+    margin-bottom: 22px;
+}
+
+.apps-hero-content h1 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.apps-hero-content p {
+    font-size: 1.12rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 580px;
+}
+
+/* STATS BOX (Recruiter Magnet) */
+.apps-hero-stats {
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 38px 30px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    position: relative;
+}
+
+.apps-hero-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--grad-primary);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat strong {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+}
+
+.stat span {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.35;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border-subtle);
+}
+
+/* =========================================================
+   INTRO SECTION
+========================================================= */
+.apps-intro {
+    padding: 85px 0;
+    background: rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.apps-intro-container {
+    width: min(880px, 92%);
+    margin: 0 auto;
+}
+
+.apps-intro h2 {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -1px;
+    margin: 8px 0 18px;
+}
+
+.apps-intro h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.apps-intro p {
+    color: var(--text-body);
+    font-size: 1.1rem;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   FEATURED APPLICATIONS (GRID LAYOUT)
+========================================================= */
+.featured-apps {
+    padding: 105px 0;
+}
+
+.apps-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -1.2px;
+    margin-top: 8px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+/* Featured App Card */
+.featured-app {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.featured-app:hover {
+    transform: translateY(-8px);
+    background: var(--bg-card-hover);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: var(--shadow-prominent);
+}
+
+.featured-app::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--grad-primary);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.featured-app:hover::before {
+    opacity: 1;
+}
+
+/* App Number Badge */
+.app-number {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: rgba(124, 58, 237, 0.12);
+    user-select: none;
+}
+
+.app-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.app-content h3 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.app-content p {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 22px;
+}
+
+/* Feature Pills */
+.app-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.app-features span {
+    padding: 6px 14px;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+.featured-app:hover .app-features span {
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* Google Play Store Link */
+.app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--purple-primary);
+    margin-bottom: 25px;
+}
+
+.app-link:hover {
+    color: var(--crimson-primary);
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   APP VISUALS (CREATIVE COMPONENT DISPLAYS)
+========================================================= */
+.app-visual {
+    background: var(--dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    min-height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 01. Stories Visual */
+.visual-card {
+    background: rgba(22, 14, 43, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px 24px;
+    width: 210px;
+    position: relative;
+}
+
+.visual-top {
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: var(--crimson-rose);
+}
+
+.visual-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--text-white);
+    margin: 4px 0 12px;
+}
+
+.visual-lines span {
+    display: block;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.visual-lines span:nth-child(1) { width: 100%; }
+.visual-lines span:nth-child(2) { width: 75%; }
+.visual-lines span:nth-child(3) { width: 50%; }
+
+.visual-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--grad-primary);
+    color: var(--text-white);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+}
+
+/* 02. Kids Visual */
+.kids-shape {
+    display: flex;
+    gap: 14px;
+}
+
+.kids-shape span {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-white);
+}
+
+.kids-shape span:nth-child(1) { background: linear-gradient(135deg, #f43f5e, #be123c); }
+.kids-shape span:nth-child(2) { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.kids-shape span:nth-child(3) { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+
+/* 03. Tracing Visual */
+.letter-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trace-letter {
+    font-size: 3.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--crimson-rose);
+    text-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+}
+
+.trace-text {
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #cbbde2;
+    margin-top: 4px;
+}
+
+/* 04. Translator Visual */
+.translation-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(22, 14, 43, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 26px;
+    border-radius: 18px;
+    font-weight: 800;
+    color: var(--text-white);
+    font-size: 1.1rem;
+}
+
+.translation-card span {
+    color: var(--crimson-rose);
+    font-size: 1.4rem;
+}
+
+/* =========================================================
+   MORE PRODUCTION APPS (3-COLUMN CARDS)
+========================================================= */
+.more-apps {
+    padding: 95px 0;
+    background: rgba(239, 233, 248, 0.6);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.more-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.small-app-card {
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 34px 28px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.small-app-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(225, 29, 72, 0.35);
+    box-shadow: var(--shadow-prominent);
+}
+
+.small-number {
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: var(--purple-primary);
+    margin-bottom: 10px;
+}
+
+.small-category {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.small-app-card h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+}
+
+.small-app-card p {
+    color: var(--text-body);
+    font-size: 0.94rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.small-app-card a {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--purple-primary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.small-app-card a:hover {
+    color: var(--crimson-primary);
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   WORK APPROACH SECTION (4-COLUMN GRID)
+========================================================= */
+.work-approach {
+    padding: 105px 0;
+}
+
+.approach-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.approach-heading {
+    margin-bottom: 55px;
+}
+
+.approach-heading h2 {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -1px;
+    margin-top: 8px;
+}
+
+.approach-heading h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.approach-item {
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 34px 26px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.approach-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: var(--shadow-prominent);
+}
+
+.approach-item span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--purple-primary);
+    font-size: 0.9rem;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
+    transition: var(--transition);
+}
+
+.approach-item:hover span {
+    background: var(--grad-primary);
+    color: var(--text-white);
+}
+
+.approach-item h3 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+}
+
+.approach-item p {
+    color: var(--text-body);
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   APPS CTA (DEEP PLUM CONTRAST BOX)
+========================================================= */
+.apps-cta {
+    padding: 70px 0 110px;
+}
+
+.cta-container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    background: var(--grad-dark);
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    border-radius: 36px;
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 65px rgba(25, 10, 45, 0.25);
+}
+
+.cta-container .section-label {
+    color: var(--crimson-rose);
+}
+
+.cta-container h2 {
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+    font-weight: 900;
+    color: var(--text-white);
+    letter-spacing: -1px;
+    margin: 12px 0 18px;
+}
+
+.cta-container h2 span {
+    background: linear-gradient(135deg, #c084fc 0%, #fb7185 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-container p {
+    color: #c7bed8;
+    font-size: 1.05rem;
+    max-width: 540px;
+    margin: 0 auto 34px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 32px;
+    background: var(--grad-primary);
+    color: var(--text-white);
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--grad-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(225, 29, 72, 0.45);
+}
+
+/* =========================================================
+   FOOTER (MIDNIGHT PLUM)
+========================================================= */
+.footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 45px 0;
+    background: #120b22;
+    color: var(--text-white);
+}
+
+.footer-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-container p {
+    color: #8f82a9;
+    font-size: 0.88rem;
+}
+
+.footer-container a {
+    color: #c2b7d6;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.footer-container a:hover {
+    color: var(--crimson-rose);
+}
+
+/* =========================================================
+   COMPREHENSIVE RESPONSIVENESS (Laptops, Tablets & Phones)
+========================================================= */
+
+/* --- TABLETS & SMALL LAPTOPS (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .apps-hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .apps-hero-content {
+        text-align: center;
+    }
+
+    .apps-hero-content p {
+        margin: 0 auto;
+    }
+
+    .apps-hero-stats {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .more-apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- MOBILE LANDSCAPE & TABLETS (<= 768px) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: rgba(247, 244, 252, 0.98);
+        flex-direction: column;
+        padding: 25px 0;
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-md);
+        display: none;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .apps-hero {
+        padding: 65px 0;
+    }
+
+    .featured-app {
+        padding: 30px 24px;
+    }
+
+    .more-apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- SMALL MOBILE PHONES (<= 480px) --- */
+@media (max-width: 480px) {
+    .apps-hero-content h1 {
+        font-size: 2.4rem;
+        letter-spacing: -1px;
+    }
+
+    .stat strong {
+        font-size: 2.6rem;
+    }
+
+    .section-heading h2,
+    .apps-intro h2 {
+        font-size: 2.1rem;
+    }
+
+    .cta-container {
+        padding: 50px 20px;
+    }
+
+    .cta-container h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
