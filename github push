@@ -1,0 +1,4 @@
+cd C:\SANA_FILES\PORTFOLIO
+git add .
+git commit -m "Redesign portfolio homepage"
+git push
