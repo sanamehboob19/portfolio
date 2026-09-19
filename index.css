@@ -257,15 +257,33 @@ a {
 }
 
 .hero-skills span {
-    padding: 6px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Icon aur text ke darmiyan gap */
+    padding: 7px 16px;
     background: #ffffff;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-full);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 800;
     color: var(--text-heading);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+}
+
+.hero-skills span .skill-icon {
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.hero-skills span:hover {
+    border-color: var(--purple-primary);
+    color: var(--purple-primary);
+    transform: translateY(-2px);
+}
+
+.hero-skills span:hover .skill-icon {
+    transform: scale(1.18);
 }
 
 .hero-skills span:hover {
@@ -373,7 +391,457 @@ a {
     border-radius: 50%;
 }
 
-.phone-card {
+/* =========================================================
+   3-PHONE TRIO SHOWCASE (HERO VISUAL)
+========================================================= */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 520px;
+    width: 100%;
+    perspective: 1200px;
+}
+
+.visual-background {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(225, 29, 72, 0.18) 0%, rgba(124, 58, 237, 0.22) 55%, transparent 75%);
+    filter: blur(50px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.phones-trio-stage {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+/* Base Phone Shell */
+.phone-mockup {
+    position: absolute;
+    width: 230px;
+    height: 460px;
+    background: #0f0a1d;
+    border: 7px solid #23193d;
+    border-radius: 38px;
+    box-shadow: 0 25px 60px rgba(25, 10, 50, 0.35);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.4s ease;
+}
+
+/* Phone Top Notch */
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 14px;
+    background: #23193d;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+}
+
+/* Internal Mock Screens */
+.mock-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    padding: 18px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    user-select: none;
+}
+
+.mock-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0 4px 6px;
+}
+
+/* --- 3D ANGLES FOR TRIO --- */
+.phone-left {
+    transform: translateX(-120px) translateY(18px) rotate(-8deg) scale(0.92);
+    z-index: 2;
+}
+
+.phone-center {
+    transform: translateX(0) translateY(-6px) scale(1.02);
+    z-index: 5;
+    box-shadow: 0 30px 70px rgba(35, 15, 65, 0.45);
+    animation: centerPhoneFloat 5s ease-in-out infinite;
+}
+
+.phone-right {
+    transform: translateX(120px) translateY(18px) rotate(8deg) scale(0.92);
+    z-index: 2;
+}
+
+/* Hover Interactivity */
+.phones-trio-stage:hover .phone-left {
+    transform: translateX(-145px) translateY(12px) rotate(-11deg) scale(0.94);
+}
+.phones-trio-stage:hover .phone-right {
+    transform: translateX(145px) translateY(12px) rotate(11deg) scale(0.94);
+}
+.phones-trio-stage:hover .phone-center {
+    transform: translateX(0) translateY(-14px) scale(1.05);
+}
+
+@keyframes centerPhoneFloat {
+    0%, 100% { transform: translateX(0) translateY(-6px) scale(1.02); }
+    50% { transform: translateX(0) translateY(-16px) scale(1.02); }
+}
+
+/* =========================================================
+   PHONE 1: ENGLISH FOR KIDS (GREEN / PURPLE THEME)
+========================================================= */
+.screen-kids-usa {
+    background: linear-gradient(180deg, #dcfce7 0%, #ffffff 48%, #f3e8ff 100%);
+    color: #14532d;
+}
+
+.screen-kids-usa .mock-status {
+    color: #166534;
+}
+
+.kids-usa-banner {
+    text-align: center;
+    padding: 10px 0 6px;
+    position: relative;
+}
+
+.bubble-sparkle {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+.app-title-efk {
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #15803d;
+    text-shadow: 0 1px 2px rgba(22, 101, 52, 0.15);
+}
+
+.app-title-efk span {
+    color: #e11d48;
+}
+
+.cartoon-avatar-row {
+    font-size: 1.6rem;
+    margin: 4px 0 6px;
+}
+
+.kids-usa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 4px;
+}
+
+.usa-row {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 7px 10px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.row-ico {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    margin-right: 8px;
+}
+
+.ico-purple { background: #ede9fe; }
+.ico-orange { background: #ffedd5; }
+.ico-green { background: #dcfce7; }
+.ico-red { background: #ffe4e6; }
+
+.row-txt {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #334155;
+    flex: 1;
+}
+
+.row-arr {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+/* =========================================================
+   PHONE 2: KIDS LEARNING (VIBRANT FLAGSHIP)
+========================================================= */
+.screen-kids-learning {
+    background: linear-gradient(180deg, #1e1236 0%, #170d2b 40%, #291244 100%);
+    color: #ffffff;
+}
+
+.screen-kids-learning .mock-status {
+    color: #c4b5fd;
+}
+
+.kl-header {
+    text-align: center;
+    padding: 4px 0 10px;
+}
+
+.kl-header h3 {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #fbbf24;
+    letter-spacing: -0.2px;
+    text-shadow: 0 2px 10px rgba(251, 191, 36, 0.35);
+}
+
+.kl-header p {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #e0e7ff;
+    letter-spacing: 0.5px;
+}
+
+.kl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+
+.kl-card {
+    border-radius: 14px;
+    padding: 10px 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.kl-card .kl-ico {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.kl-card strong {
+    font-size: 0.62rem;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.card-abc {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    color: #ffffff;
+}
+
+.card-fruits {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #ffffff;
+}
+
+.card-numbers {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    color: #ffffff;
+}
+
+.card-colors {
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    color: #ffffff;
+}
+
+.kl-character-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.lion-mascot {
+    font-size: 2.1rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.kl-wave-bar {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #34d399, #a78bfa);
+    border-radius: 10px;
+    margin-top: 4px;
+}
+
+/* =========================================================
+   PHONE 3: ENGLISH STORIES (DARK PLUM / GLOW THEME)
+========================================================= */
+.screen-stories {
+    background: linear-gradient(180deg, #130a21 0%, #201035 50%, #0d0617 100%);
+    color: #f1f5f9;
+}
+
+.screen-stories .mock-status {
+    color: #a78bfa;
+}
+
+.stories-header {
+    text-align: center;
+    padding: 6px 0 8px;
+}
+
+.stories-header h4 {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #fb7185;
+    margin-bottom: 4px;
+}
+
+.books-illustration {
+    position: relative;
+    display: inline-block;
+    font-size: 1.8rem;
+    margin: 2px 0 6px;
+}
+
+.books-glow {
+    position: absolute;
+    inset: -6px;
+    background: radial-gradient(circle, rgba(244, 63, 94, 0.4), transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.stories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.story-pill {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 7px 10px;
+    border-radius: 11px;
+    backdrop-filter: blur(8px);
+}
+
+.story-pill.pill-active {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: rgba(244, 63, 94, 0.4);
+}
+
+.st-ico {
+    font-size: 0.78rem;
+    margin-right: 8px;
+}
+
+.st-txt {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #f8fafc;
+    flex: 1;
+}
+
+.st-tag {
+    font-size: 0.6rem;
+    background: #e11d48;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.st-arr {
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+
+/* =========================================================
+   RESPONSIVE OPTIMIZATION (PREVENTS OVERFLOW)
+========================================================= */
+@media (max-width: 1024px) {
+    .hero-visual {
+        min-height: 480px;
+    }
+    .phone-mockup {
+        width: 205px;
+        height: 420px;
+    }
+    .phone-left {
+        transform: translateX(-95px) translateY(16px) rotate(-7deg) scale(0.9);
+    }
+    .phone-right {
+        transform: translateX(95px) translateY(16px) rotate(7deg) scale(0.9);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-visual {
+        min-height: 430px;
+        overflow: visible;
+    }
+    .phones-trio-stage {
+        height: 410px;
+    }
+    .phone-mockup {
+        width: 185px;
+        height: 380px;
+        border-width: 5px;
+        border-radius: 30px;
+    }
+    /* Gently tuck side phones so zero horizontal scroll on mobile */
+    .phone-left {
+        transform: translateX(-65px) translateY(15px) rotate(-8deg) scale(0.85);
+        opacity: 0.88;
+    }
+    .phone-right {
+        transform: translateX(65px) translateY(15px) rotate(8deg) scale(0.85);
+        opacity: 0.88;
+    }
+    .phone-center {
+        transform: translateX(0) translateY(-4px) scale(0.98);
+    }
+    .floating-one { top: 5px; left: -10px; font-size: 0.68rem; padding: 5px 10px; }
+    .floating-two { display: none; } /* Hide 1 badge on tiny screens for clean UI */
+    .floating-three { bottom: 5px; right: -10px; font-size: 0.68rem; padding: 5px 10px; }
+}
+
+
+
+
+
+/* .phone-card {
     position: relative;
     z-index: 2;
     width: 260px;
@@ -387,7 +855,7 @@ a {
     flex-direction: column;
     justify-content: space-between;
     animation: floatPhone 6s ease-in-out infinite;
-}
+} */
 
 .phone-top {
     display: flex;
@@ -535,11 +1003,235 @@ a {
 /* =========================================================
    INTRO SECTION
 ========================================================= */
+/* =========================================================
+   INTRO SECTION (GLASSMORPHIC ENGINEERING SHOWCASE)
+========================================================= */
 .intro {
-    padding: 75px 0;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.45);
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Master Glass Container */
+.intro-glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 243, 253, 0.85) 100%);
+    border: 1.5px solid var(--border-subtle);
+    border-radius: 28px;
+    padding: 55px 48px;
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.06);
+    backdrop-filter: blur(16px);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background accent glow */
+.intro-glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(225, 29, 72, 0.12), transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* --- LEFT CONTENT --- */
+.intro-left {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    background: rgba(225, 29, 72, 0.08);
+    border: 1px solid rgba(225, 29, 72, 0.22);
+    border-radius: var(--radius-full);
+    color: var(--crimson-primary);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+
+.badge-pulse {
+    width: 7px;
+    height: 7px;
+    background: var(--crimson-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--crimson-primary);
+}
+
+.intro-left h2 {
+    font-size: clamp(2rem, 3.2vw, 2.7rem);
+    line-height: 1.18;
+    color: var(--text-heading);
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+}
+
+.intro-left h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-left p {
+    font-size: 1.02rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-bottom: 26px;
+    max-width: 520px;
+}
+
+/* Interactive CTA Link */
+.intro-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 22px;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--purple-primary);
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.intro-arrow {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--purple-soft);
+    display: grid;
+    place-items: center;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.intro-cta-link:hover {
+    border-color: var(--purple-primary);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.intro-cta-link:hover .intro-arrow {
+    background: var(--grad-primary);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* --- RIGHT: 3 PILLAR CARDS --- */
+.intro-pillars {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(50, 20, 90, 0.03);
+    transition: var(--transition);
+}
+
+.pillar-item:hover {
+    background: #ffffff;
+    transform: translateX(6px);
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow: var(--shadow-sm);
+}
+
+.pillar-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.icon-arch {
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.icon-shield {
+    background: rgba(225, 29, 72, 0.1);
+}
+
+.icon-ads {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.pillar-info h4 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 2px;
+}
+
+.pillar-info p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS
+========================================================= */
+@media (max-width: 1024px) {
+    .intro-glass-card {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+        gap: 36px;
+    }
+
+    .intro-left p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro {
+        padding: 50px 0;
+    }
+
+    .intro-glass-card {
+        padding: 30px 18px;
+        border-radius: 20px;
+    }
+
+    .intro-left h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro-cta-link {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .pillar-item {
+        padding: 14px 14px;
+    }
 }
 
 .intro-container {
@@ -1289,3 +1981,130 @@ footer {
         font-size: 1.7rem;
     }
 }
+
+
+
+/* =========================================================
+   HERO STATS STRIP (CLEAN & MODERN SCREENSHOT STYLE)
+========================================================= */
+.hero-stats-strip {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1.5px solid rgba(124, 58, 237, 0.12);
+    flex-wrap: wrap;
+}
+
+.stat-col {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+}
+
+.stat-col:hover {
+    transform: translateY(-2px);
+}
+
+/* Gradient Glowing Icons */
+.stat-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.icon-users {
+    background: rgba(124, 58, 237, 0.08);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.icon-folder {
+    background: rgba(225, 29, 72, 0.08);
+    color: #e11d48;
+    border: 1px solid rgba(225, 29, 72, 0.2);
+}
+
+.icon-mobile {
+    background: rgba(168, 85, 247, 0.08);
+    color: #9333ea;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.stat-col:hover .stat-icon {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
+}
+
+/* Stat Numbers & Subtext */
+.stat-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-text strong {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-heading);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.stat-text span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   RESPONSIVE (LAPTOP, TABLET & MOBILE)
+========================================================= */
+@media (max-width: 1024px) {
+    .hero-stats-strip {
+        justify-content: center;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 580px) {
+    .hero-stats-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 12px;
+        width: 100%;
+        padding-top: 18px;
+    }
+
+    /* Make the 3rd stat span full width or center nicely on mobile */
+    .stat-col:nth-child(3) {
+        grid-column: span 2;
+        justify-content: center;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stat-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .stat-text strong {
+        font-size: 1.2rem;
+    }
+
+    .stat-text span {
+        font-size: 0.72rem;
+    }
+}
+

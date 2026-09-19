@@ -1,6 +1,7 @@
 /* =========================================================
    SANA MEHBOOB — CONTACT PAGE STYLESHEET (contact.css)
    Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
+   With Vibrant WhatsApp Emerald Highlight
    100% Fully Responsive for Laptops, Tablets & Mobile Devices
 ========================================================= */
 
@@ -12,7 +13,7 @@
 
     --bg-base: #f7f4fc;
     --bg-surface: #efe9f8;
-    --bg-card: rgba(255, 255, 255, 0.92);
+    --bg-card: rgba(255, 255, 255, 0.94);
     --bg-card-hover: #ffffff;
     
     --dark-surface: #150e26;
@@ -25,11 +26,15 @@
     --crimson-primary: #e11d48;
     --crimson-rose: #f43f5e;
     --crimson-soft: rgba(225, 29, 72, 0.1);
+
+    --whatsapp-green: #25d366;
+    --whatsapp-dark: #128c7e;
     
     --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
     --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
     --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
     --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
+    --grad-whatsapp: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     
     --text-heading: #1a122c;
     --text-body: #504663;
@@ -42,7 +47,7 @@
 
     --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
     --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
-    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.15);
 
     --radius-sm: 10px;
     --radius-md: 16px;
@@ -97,7 +102,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 244, 252, 0.90);
+    background: rgba(247, 244, 252, 0.92);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
@@ -153,6 +158,25 @@ ul {
     border-radius: var(--radius-full);
 }
 
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    font-size: 0.86rem;
+    font-weight: 800;
+    background: var(--grad-whatsapp);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    transition: var(--transition);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
 .menu-toggle {
     display: none;
     background: none;
@@ -180,21 +204,34 @@ ul {
     gap: 50px;
 }
 
-.eyebrow, .section-label {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: var(--crimson-primary);
-    text-transform: uppercase;
-    margin-bottom: 12px;
+.contact-eyebrow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: var(--radius-full);
+    color: #059669;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    margin-bottom: 18px;
+}
+
+.live-dot-green {
+    width: 7px;
+    height: 7px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
 }
 
 .contact-hero-content h1 {
-    font-size: clamp(2.3rem, 5vw, 4.1rem);
+    font-size: clamp(2.3rem, 4.8vw, 4.1rem);
     font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+    line-height: 1.12;
+    letter-spacing: -1.4px;
     color: var(--text-heading);
     margin-bottom: 18px;
 }
@@ -206,10 +243,63 @@ ul {
 }
 
 .contact-hero-content p {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     color: var(--text-body);
-    line-height: 1.75;
+    line-height: 1.78;
     max-width: 540px;
+    margin-bottom: 26px;
+}
+
+/* Direct Hero Actions (WhatsApp & Mail) */
+.hero-direct-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.btn-whatsapp-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--grad-whatsapp);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    font-weight: 900;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    transition: var(--transition);
+}
+
+.btn-whatsapp-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+}
+
+.wa-ico {
+    font-size: 1.1rem;
+}
+
+.btn-email-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 0.92rem;
+    color: var(--text-heading);
+    transition: var(--transition);
+}
+
+.btn-email-hero:hover {
+    border-color: var(--purple-primary);
+    color: var(--purple-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Recruiter Live Status Card */
@@ -217,8 +307,8 @@ ul {
     background: var(--grad-dark);
     border: 1.5px solid rgba(124, 58, 237, 0.35);
     border-radius: var(--radius-lg);
-    padding: 32px 28px;
-    box-shadow: 0 20px 45px rgba(25, 10, 45, 0.28);
+    padding: 34px 28px;
+    box-shadow: 0 25px 55px rgba(25, 10, 45, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -229,7 +319,7 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 3.5px;
     background: var(--grad-primary);
 }
 
@@ -269,20 +359,37 @@ ul {
     font-size: 1.35rem;
     font-weight: 900;
     color: var(--text-white);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.3;
 }
 
 .status-body p {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: #c7bed8;
     line-height: 1.6;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
-.status-meta span {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: #fbbf24;
+.status-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sf-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: #e2e8f0;
+    font-weight: 700;
+}
+
+.sf-check {
+    color: #10b981;
+    font-weight: 900;
 }
 
 /* =========================================================
@@ -298,22 +405,42 @@ ul {
 }
 
 .section-header {
-    margin-bottom: 45px;
+    margin-bottom: 50px;
     text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--crimson-primary);
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .section-header h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 3.8vw, 3rem);
     font-weight: 900;
     color: var(--text-heading);
-    letter-spacing: -1px;
-    margin-top: 6px;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    gap: 26px;
 }
 
 .contact-card {
@@ -328,7 +455,6 @@ ul {
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    min-width: 0;
 }
 
 .contact-card::before {
@@ -354,6 +480,22 @@ ul {
     opacity: 1;
 }
 
+/* WhatsApp Featured Card Style */
+.whatsapp-featured-card {
+    border-color: rgba(37, 211, 102, 0.4);
+    background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.whatsapp-featured-card::before {
+    background: var(--grad-whatsapp);
+    opacity: 1;
+}
+
+.whatsapp-featured-card:hover {
+    border-color: #25d366;
+    box-shadow: 0 18px 45px rgba(37, 211, 102, 0.22);
+}
+
 .card-badge {
     position: absolute;
     top: 24px;
@@ -368,10 +510,10 @@ ul {
     border: 1px solid rgba(124, 58, 237, 0.2);
 }
 
-.badge-youtube {
-    background: rgba(225, 29, 72, 0.08);
-    color: var(--crimson-primary);
-    border-color: rgba(225, 29, 72, 0.2);
+.badge-whatsapp {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #86efac;
 }
 
 .contact-card-top {
@@ -392,15 +534,38 @@ ul {
     transition: var(--transition);
 }
 
+.wa-icon-bg {
+    background: rgba(37, 211, 102, 0.15);
+    color: #16a34a;
+}
+
 .contact-card:hover .contact-icon {
-    background: var(--grad-primary);
-    color: var(--text-white);
     transform: scale(1.08);
 }
 
-.youtube-icon {
-    background: rgba(225, 29, 72, 0.1);
-    color: var(--crimson-primary);
+.contact-card:hover .wa-icon-bg {
+    background: var(--grad-whatsapp);
+    color: #ffffff;
+}
+
+.linkedin-icon {
+    background: rgba(2, 132, 199, 0.1);
+    color: #0284c7;
+}
+
+.contact-card:hover .linkedin-icon {
+    background: #0284c7;
+    color: #ffffff;
+}
+
+.github-icon {
+    background: rgba(26, 18, 44, 0.1);
+    color: #1a122c;
+}
+
+.contact-card:hover .github-icon {
+    background: #1a122c;
+    color: #ffffff;
 }
 
 .channel-no {
@@ -410,7 +575,7 @@ ul {
 }
 
 .contact-card h3 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 900;
     color: var(--text-heading);
     margin-bottom: 8px;
@@ -418,7 +583,7 @@ ul {
 
 .contact-card p {
     color: var(--text-body);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     line-height: 1.7;
     margin-bottom: 22px;
 }
@@ -435,8 +600,17 @@ ul {
     word-break: break-all;
 }
 
+.wa-action {
+    color: #15803d;
+    font-weight: 900;
+}
+
 .contact-card:hover .contact-action {
     color: var(--crimson-primary);
+}
+
+.whatsapp-featured-card:hover .wa-action {
+    color: #16a34a;
 }
 
 .action-arrow {
@@ -481,6 +655,7 @@ ul {
     font-weight: 900;
     color: var(--text-white);
     letter-spacing: -0.8px;
+    line-height: 1.2;
     margin: 8px 0 14px;
 }
 
@@ -555,7 +730,7 @@ ul {
 }
 
 /* =========================================================
-   AVAILABILITY PILLS
+   AVAILABILITY
 ========================================================= */
 .availability-section {
     padding: 85px 0;
@@ -575,6 +750,7 @@ ul {
     font-weight: 900;
     color: var(--text-heading);
     letter-spacing: -0.8px;
+    line-height: 1.2;
     margin: 8px 0 14px;
 }
 
@@ -677,20 +853,43 @@ ul {
     margin: 0 auto 30px;
 }
 
+.final-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
 .final-button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 14px 32px;
-    background: var(--grad-primary);
-    color: var(--text-white);
     border-radius: var(--radius-md);
     font-weight: 800;
     font-size: 0.94rem;
+    transition: var(--transition);
+}
+
+.btn-wa-final {
+    background: var(--grad-whatsapp);
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+.btn-wa-final:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5);
+}
+
+.btn-mail-final {
+    background: var(--grad-primary);
+    color: #ffffff;
     box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
 }
 
-.final-button:hover {
+.btn-mail-final:hover {
     background: var(--grad-hover);
     transform: translateY(-2px);
     box-shadow: 0 14px 32px rgba(225, 29, 72, 0.45);
@@ -765,8 +964,6 @@ ul {
 /* =========================================================
    RESPONSIVENESS (Laptops, Tablets, Mobiles)
 ========================================================= */
-
-/* --- TABLETS & LAPTOPS (<= 1024px) --- */
 @media (max-width: 1024px) {
     .contact-hero-container {
         grid-template-columns: 1fr;
@@ -778,7 +975,11 @@ ul {
     }
 
     .contact-hero-content p {
-        margin: 0 auto;
+        margin: 0 auto 24px;
+    }
+
+    .hero-direct-actions {
+        justify-content: center;
     }
 
     .contact-status-card {
@@ -807,10 +1008,13 @@ ul {
     }
 }
 
-/* --- TABLETS & MOBILE LANDSCAPE (<= 768px) --- */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+    }
+
+    .nav-cta {
+        display: none;
     }
 
     .nav-menu {
@@ -854,7 +1058,6 @@ ul {
     }
 }
 
-/* --- SMALL MOBILE PHONES (<= 480px) --- */
 @media (max-width: 480px) {
     .contact-hero {
         padding: 40px 0 35px;
@@ -867,6 +1070,17 @@ ul {
 
     .contact-hero-content p {
         font-size: 0.94rem;
+    }
+
+    .hero-direct-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-whatsapp-hero,
+    .btn-email-hero {
+        width: 100%;
+        justify-content: center;
     }
 
     .contact-status-card {
@@ -883,10 +1097,6 @@ ul {
 
     .contact-card {
         padding: 22px 18px;
-    }
-
-    .contact-card h3 {
-        font-size: 1.25rem;
     }
 
     .card-badge {
