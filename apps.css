@@ -1,24 +1,23 @@
 /* =========================================================
    SANA MEHBOOB — PRODUCTION APPS STYLESHEET (apps.css)
    Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
-   Matches index.css, about.css & projects.css | Fully Responsive
+   Features 6M+ Trust Hero, 5M+ Flagship Card & Play Store Screenshot Galleries
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 /* --- COLOR SYSTEM & DESIGN VARIABLES --- */
 :root {
-    /* Soft Pearl Mist Base (No flat white) */
+    color-scheme: light;
+
     --bg-base: #f7f4fc;
     --bg-surface: #efe9f8;
-    --bg-card: rgba(255, 255, 255, 0.90);
+    --bg-card: rgba(255, 255, 255, 0.92);
     --bg-card-hover: #ffffff;
     
-    /* Deep Rich Contrast Elements */
     --dark-surface: #150e26;
     --dark-card: #1c1236;
     
-    /* Royal Purple & Crimson System */
     --purple-primary: #7c3aed;
     --purple-light: #a78bfa;
     --purple-soft: rgba(124, 58, 237, 0.1);
@@ -26,28 +25,24 @@
     --crimson-primary: #e11d48;
     --crimson-rose: #f43f5e;
     --crimson-soft: rgba(225, 29, 72, 0.1);
-    
-    /* Gradients */
+
     --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
     --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
     --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
     --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
     
-    /* Typography Colors */
     --text-heading: #1a122c;
     --text-body: #504663;
     --text-muted: #796e8e;
     --text-white: #ffffff;
 
-    /* Borders & Shadows */
     --border-subtle: #e3d8f1;
     --border-hover: rgba(225, 29, 72, 0.35);
     --border-accent: rgba(124, 58, 237, 0.35);
 
     --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
     --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
-    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
-    --shadow-glow: 0 10px 30px rgba(225, 29, 72, 0.28);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.15);
 
     --radius-sm: 10px;
     --radius-md: 16px;
@@ -65,6 +60,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -73,6 +69,7 @@ body {
     color: var(--text-body);
     line-height: 1.65;
     overflow-x: hidden;
+    width: 100%;
     background-image: 
         radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
         radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
@@ -97,7 +94,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 244, 252, 0.88);
+    background: rgba(247, 244, 252, 0.90);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
@@ -117,6 +114,10 @@ ul {
     font-weight: 900;
     letter-spacing: -0.5px;
     color: var(--text-heading);
+}
+
+.logo span {
+    color: var(--crimson-primary);
 }
 
 .nav-menu {
@@ -154,12 +155,12 @@ ul {
     background: none;
     border: none;
     color: var(--text-heading);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     cursor: pointer;
 }
 
 /* =========================================================
-   APPS HERO SECTION & STATS
+   APPS HERO SECTION
 ========================================================= */
 .apps-hero {
     position: relative;
@@ -171,7 +172,7 @@ ul {
     width: min(1200px, 92%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
     gap: 60px;
 }
@@ -205,62 +206,123 @@ ul {
     font-size: 1.12rem;
     color: var(--text-body);
     line-height: 1.8;
-    max-width: 580px;
+    max-width: 540px;
 }
 
-/* STATS BOX (Recruiter Magnet) */
-.apps-hero-stats {
-    background: #ffffff;
-    border: 1.5px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 38px 30px;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 20px;
+/* =========================================================
+   MEGA 6 MILLION+ STAT CARD
+========================================================= */
+.apps-mega-stat {
     position: relative;
-}
-
-.apps-hero-stats::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--grad-primary);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: var(--grad-dark);
+    border: 2px solid rgba(225, 29, 72, 0.4);
+    border-radius: var(--radius-lg);
+    padding: 44px 36px;
     text-align: center;
+    box-shadow: 0 25px 65px rgba(25, 10, 45, 0.35);
+    overflow: hidden;
+    animation: megaStatGlow 4s ease-in-out infinite alternate;
 }
 
-.stat strong {
-    font-size: 3.2rem;
+.mega-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(225, 29, 72, 0.25) 0%, rgba(124, 58, 237, 0.2) 50%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.mega-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    color: var(--crimson-rose);
+    font-size: 0.72rem;
     font-weight: 900;
-    line-height: 1;
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}
+
+.mega-stat-badge span {
+    color: #10b981;
+    font-size: 0.8rem;
+    animation: blinkDot 1.5s infinite;
+}
+
+@keyframes blinkDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.mega-stat-number {
+    font-size: clamp(4.5rem, 8vw, 6.2rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--text-white);
+    text-shadow: 0 0 35px rgba(244, 63, 94, 0.55);
     margin-bottom: 6px;
 }
 
-.stat span {
-    font-size: 0.88rem;
-    font-weight: 800;
-    color: var(--text-heading);
-    line-height: 1.35;
+.mega-stat-number em {
+    font-style: normal;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.stat-divider {
-    width: 1px;
-    height: 60px;
-    background: var(--border-subtle);
+.mega-stat-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-white);
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+}
+
+.mega-stat-sub {
+    font-size: 0.92rem;
+    color: #c7bed8;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.mega-stat-sub strong {
+    color: #fbbf24;
+}
+
+.mega-stat-chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mega-stat-chips span {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+@keyframes megaStatGlow {
+    0% {
+        box-shadow: 0 25px 60px rgba(25, 10, 45, 0.35);
+        border-color: rgba(225, 29, 72, 0.4);
+    }
+    100% {
+        box-shadow: 0 30px 75px rgba(124, 58, 237, 0.4), 0 0 30px rgba(225, 29, 72, 0.25);
+        border-color: rgba(124, 58, 237, 0.6);
+    }
 }
 
 /* =========================================================
@@ -299,7 +361,7 @@ ul {
 }
 
 /* =========================================================
-   FEATURED APPLICATIONS (GRID LAYOUT)
+   FEATURED APPLICATIONS (GRID CARDS)
 ========================================================= */
 .featured-apps {
     padding: 105px 0;
@@ -322,25 +384,143 @@ ul {
     margin-top: 8px;
 }
 
+/* =========================================================
+   FIXED: GRIDS & HORIZONTAL SCROLL ENABLER (CRITICAL FIX)
+========================================================= */
+
+/* 1. Featured Grid Fix: minmax(0, 1fr) lagane se card phailta nahi hai */
 .featured-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
 }
 
-/* Featured App Card */
 .featured-app {
+    min-width: 0; /* Horizontal scroll ko enable karta hai */
+    width: 100%;
+    overflow: hidden;
     background: var(--bg-card);
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: 40px 36px;
+    padding: 34px 28px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* 2. Top Featured Gallery Track */
+.app-gallery-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    background: #140d24;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 14px;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important; /* Force enable horizontal scroll */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* 3. Additional Apps Grid Fix: Teeno cards (Jawline, LED, Flashlight) ab barabar 3 columns me aayenge */
+.more-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Flashlight ab zaroor nazar aayegi */
+    gap: 24px;
+}
+
+.small-app-card {
+    min-width: 0; /* Card ko stretch hone se rokta hai */
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 28px 22px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.small-app-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(225, 29, 72, 0.35);
+    box-shadow: var(--shadow-prominent);
+}
+
+/* 4. Bottom Small Screenshot Gallery Track (Smooth Scrolling Fix) */
+.small-gallery-track {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto !important; /* Smooth Horizontal Scrolling */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 8px;
+    background: #140d24;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: grab;
+}
+
+.small-shot {
+    width: 85px;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    scroll-snap-align: start;
+    flex-shrink: 0; /* Images ko chota hone se rokega taake scroll bany */
+    background: #1e1533;
+    transition: var(--transition);
+}
+
+.small-shot:hover {
+    transform: scale(1.06);
+    border-color: var(--crimson-rose);
+}
+
+/* 5. Scrollbar ko Glowing aur Prominent Banaya Taake Pata Chale Scroll Ho Rahi Hai */
+.gallery-track::-webkit-scrollbar,
+.small-gallery-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-track::-webkit-scrollbar-track,
+.small-gallery-track::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+
+.gallery-track::-webkit-scrollbar-thumb,
+.small-gallery-track::-webkit-scrollbar-thumb {
+    background: var(--grad-primary); /* Purple-Crimson Gradient Thumb */
+    border-radius: 10px;
+}
+
+.gallery-track::-webkit-scrollbar-thumb:hover,
+.small-gallery-track::-webkit-scrollbar-thumb:hover {
+    background: var(--grad-hover);
 }
 
 .featured-app:hover {
@@ -366,32 +546,106 @@ ul {
     opacity: 1;
 }
 
-/* App Number Badge */
+/* Special High-Elevation Border for 5 Million App */
+.flagship-5m {
+    border-color: rgba(225, 29, 72, 0.4);
+    background: linear-gradient(150deg, #ffffff 0%, #fff7f9 100%);
+    box-shadow: 0 15px 40px rgba(225, 29, 72, 0.12);
+}
+
+.flagship-5m::before {
+    opacity: 1;
+}
+
+/* Card Header (Number + Live Metrics) */
+.app-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .app-number {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     font-weight: 900;
-    color: rgba(124, 58, 237, 0.12);
-    user-select: none;
+    color: var(--purple-primary);
+    background: rgba(124, 58, 237, 0.08);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+
+/* Metric Badges (Downloads & Stars) */
+.play-metrics {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.metric-chip {
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.downloads-chip {
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    color: var(--purple-primary);
+}
+
+.highlight-chip {
+    background: rgba(225, 29, 72, 0.12);
+    border-color: rgba(225, 29, 72, 0.35);
+    color: var(--crimson-primary);
+    font-weight: 900;
+}
+
+/* 5 Million Downloads Mega Highlight Badge */
+.mega-highlight-chip {
+    background: linear-gradient(135deg, #e11d48, #be123c);
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+    letter-spacing: 0.3px;
+    animation: bounceChip 2.5s infinite;
+}
+
+@keyframes bounceChip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.rating-chip {
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    color: #92400e;
 }
 
 .app-category {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     font-weight: 900;
     letter-spacing: 1.6px;
     color: var(--crimson-primary);
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .app-content h3 {
-    font-size: 1.7rem;
+    font-size: 1.65rem;
     font-weight: 900;
     color: var(--text-heading);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.4px;
     margin-bottom: 12px;
 }
 
@@ -399,15 +653,14 @@ ul {
     color: var(--text-body);
     font-size: 1rem;
     line-height: 1.75;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
-/* Feature Pills */
 .app-features {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .app-features span {
@@ -419,158 +672,96 @@ ul {
     font-weight: 800;
     color: var(--text-heading);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-    transition: var(--transition);
 }
 
-.featured-app:hover .app-features span {
-    border-color: rgba(124, 58, 237, 0.3);
-}
-
-/* Google Play Store Link */
 .app-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.92rem;
+    padding: 12px 24px;
+    background: var(--grad-primary);
+    color: var(--text-white);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
     font-weight: 800;
-    color: var(--purple-primary);
-    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.25);
+    margin-bottom: 22px;
 }
 
 .app-link:hover {
-    color: var(--crimson-primary);
-    transform: translateX(4px);
+    background: var(--grad-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4);
 }
 
 /* =========================================================
-   APP VISUALS (CREATIVE COMPONENT DISPLAYS)
+   PLAY STORE 6-SCREENSHOT GALLERY (SMOOTH HORIZONTAL STRIP)
 ========================================================= */
-.app-visual {
-    background: var(--dark-card);
+.app-gallery-container {
+    background: #140d24;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
-    min-height: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    padding: 14px 14px 18px;
     overflow: hidden;
-}
-
-/* 01. Stories Visual */
-.visual-card {
-    background: rgba(22, 14, 43, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 20px 24px;
-    width: 210px;
     position: relative;
+    box-shadow: 0 10px 25px rgba(18, 10, 32, 0.25);
 }
 
-.visual-top {
-    font-size: 0.65rem;
+.gallery-hint {
+    display: block;
+    font-size: 0.68rem;
     font-weight: 900;
     letter-spacing: 1.5px;
     color: var(--crimson-rose);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: right;
 }
 
-.visual-title {
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: var(--text-white);
-    margin: 4px 0 12px;
+.gallery-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
 }
 
-.visual-lines span {
-    display: block;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
-    margin-bottom: 6px;
+/* Custom Sleek Scrollbar for Screenshot Strip */
+.gallery-track::-webkit-scrollbar {
+    height: 5px;
 }
 
-.visual-lines span:nth-child(1) { width: 100%; }
-.visual-lines span:nth-child(2) { width: 75%; }
-.visual-lines span:nth-child(3) { width: 50%; }
+.gallery-track::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
 
-.visual-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.gallery-track::-webkit-scrollbar-thumb {
     background: var(--grad-primary);
-    color: var(--text-white);
-    font-size: 0.65rem;
-    font-weight: 900;
-    padding: 3px 8px;
-    border-radius: var(--radius-full);
+    border-radius: 10px;
 }
 
-/* 02. Kids Visual */
-.kids-shape {
-    display: flex;
-    gap: 14px;
+.gallery-shot {
+    width: 125px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    transition: var(--transition);
+    background: #1a122c;
 }
 
-.kids-shape span {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--text-white);
-}
-
-.kids-shape span:nth-child(1) { background: linear-gradient(135deg, #f43f5e, #be123c); }
-.kids-shape span:nth-child(2) { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
-.kids-shape span:nth-child(3) { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-
-/* 03. Tracing Visual */
-.letter-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.trace-letter {
-    font-size: 3.8rem;
-    font-weight: 900;
-    line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 2px var(--crimson-rose);
-    text-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
-}
-
-.trace-text {
-    font-size: 0.68rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: #cbbde2;
-    margin-top: 4px;
-}
-
-/* 04. Translator Visual */
-.translation-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    background: rgba(22, 14, 43, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 16px 26px;
-    border-radius: 18px;
-    font-weight: 800;
-    color: var(--text-white);
-    font-size: 1.1rem;
-}
-
-.translation-card span {
-    color: var(--crimson-rose);
-    font-size: 1.4rem;
+.gallery-shot:hover {
+    transform: scale(1.04);
+    border-color: var(--crimson-rose);
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4);
 }
 
 /* =========================================================
-   MORE PRODUCTION APPS (3-COLUMN CARDS)
+   MORE PRODUCTION APPS (NO RATINGS ON TOP, 6 IMAGES BELOW)
 ========================================================= */
 .more-apps {
     padding: 95px 0;
@@ -589,13 +780,12 @@ ul {
     background: #ffffff;
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: 34px 28px;
+    padding: 32px 26px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
 }
 
 .small-app-card:hover {
@@ -604,11 +794,17 @@ ul {
     box-shadow: var(--shadow-prominent);
 }
 
+.small-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
 .small-number {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 900;
     color: var(--purple-primary);
-    margin-bottom: 10px;
 }
 
 .small-category {
@@ -617,21 +813,20 @@ ul {
     letter-spacing: 1.5px;
     color: var(--crimson-primary);
     text-transform: uppercase;
-    margin-bottom: 10px;
 }
 
 .small-app-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 900;
     color: var(--text-heading);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .small-app-card p {
     color: var(--text-body);
-    font-size: 0.94rem;
-    line-height: 1.7;
-    margin-bottom: 22px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 18px;
 }
 
 .small-app-card a {
@@ -640,6 +835,7 @@ ul {
     color: var(--purple-primary);
     display: inline-flex;
     align-items: center;
+    margin-bottom: 18px;
 }
 
 .small-app-card a:hover {
@@ -647,92 +843,46 @@ ul {
     transform: translateX(4px);
 }
 
-/* =========================================================
-   WORK APPROACH SECTION (4-COLUMN GRID)
-========================================================= */
-.work-approach {
-    padding: 105px 0;
-}
-
-.approach-container {
-    width: min(1200px, 92%);
-    margin: 0 auto;
-}
-
-.approach-heading {
-    margin-bottom: 55px;
-}
-
-.approach-heading h2 {
-    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-    font-weight: 900;
-    color: var(--text-heading);
-    letter-spacing: -1px;
-    margin-top: 8px;
-}
-
-.approach-heading h2 span {
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.approach-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.approach-item {
-    background: #ffffff;
-    border: 1.5px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 34px 26px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.approach-item:hover {
-    transform: translateY(-6px);
-    border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: var(--shadow-prominent);
-}
-
-.approach-item span {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
+/* 6 Screenshots Horizontal Strip for Additional Apps */
+.small-gallery-track {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    background: #140d24;
     border-radius: 12px;
-    background: rgba(124, 58, 237, 0.1);
-    color: var(--purple-primary);
-    font-size: 0.9rem;
-    font-weight: 900;
-    display: grid;
-    place-items: center;
-    margin-bottom: 16px;
+}
+
+.small-gallery-track::-webkit-scrollbar {
+    height: 4px;
+}
+
+.small-gallery-track::-webkit-scrollbar-thumb {
+    background: var(--purple-primary);
+    border-radius: 10px;
+}
+
+.small-shot {
+    width: 80px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background: #1a122c;
     transition: var(--transition);
 }
 
-.approach-item:hover span {
-    background: var(--grad-primary);
-    color: var(--text-white);
-}
-
-.approach-item h3 {
-    font-size: 1.25rem;
-    font-weight: 900;
-    color: var(--text-heading);
-    margin-bottom: 10px;
-}
-
-.approach-item p {
-    color: var(--text-body);
-    font-size: 0.94rem;
-    line-height: 1.7;
+.small-shot:hover {
+    transform: scale(1.05);
+    border-color: var(--purple-light);
 }
 
 /* =========================================================
-   APPS CTA (DEEP PLUM CONTRAST BOX)
+   CTA SECTION
 ========================================================= */
 .apps-cta {
     padding: 70px 0 110px;
@@ -746,8 +896,6 @@ ul {
     border-radius: 36px;
     padding: 80px 40px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
     box-shadow: 0 25px 65px rgba(25, 10, 45, 0.25);
 }
 
@@ -849,8 +997,8 @@ ul {
         margin: 0 auto;
     }
 
-    .apps-hero-stats {
-        max-width: 500px;
+    .apps-mega-stat {
+        max-width: 520px;
         margin: 0 auto;
     }
 
@@ -859,10 +1007,6 @@ ul {
     }
 
     .more-apps-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .approach-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -891,18 +1035,19 @@ ul {
     }
 
     .apps-hero {
-        padding: 65px 0;
+        padding: 60px 0 50px;
     }
 
     .featured-app {
-        padding: 30px 24px;
+        padding: 28px 20px;
+    }
+
+    .gallery-shot {
+        width: 110px;
+        height: 190px;
     }
 
     .more-apps-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .approach-grid {
         grid-template-columns: 1fr;
     }
 
@@ -912,20 +1057,56 @@ ul {
     }
 }
 
+/* 5th Card Desktop Layout Balance */
+@media (min-width: 1025px) {
+    .featured-grid .antitheft-card {
+        grid-column: span 2;
+        max-width: 850px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+
+
 /* --- SMALL MOBILE PHONES (<= 480px) --- */
 @media (max-width: 480px) {
     .apps-hero-content h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
         letter-spacing: -1px;
     }
 
-    .stat strong {
-        font-size: 2.6rem;
+    .apps-mega-stat {
+        padding: 32px 18px;
+        border-radius: var(--radius-md);
     }
 
-    .section-heading h2,
-    .apps-intro h2 {
-        font-size: 2.1rem;
+    .mega-stat-number {
+        font-size: 4.4rem;
+    }
+
+    .play-metrics {
+        width: 100%;
+    }
+
+    .metric-chip {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+    }
+
+    .gallery-shot {
+        width: 95px;
+        height: 170px;
+    }
+
+    .small-shot {
+        width: 70px;
+        height: 125px;
+    }
+
+    .app-link {
+        width: 100%;
+        justify-content: center;
     }
 
     .cta-container {

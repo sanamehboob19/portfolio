@@ -1,20 +1,23 @@
 /* =========================================================
-   SANA MEHBOOB — ABOUT ME PAGE STYLESHEET
-   Theme: Balanced Dual-Tone (Soft Lilac Mist + Deep Plum & Crimson)
-   Matches index.css | 100% Responsive for Mobile & Laptop
+   SANA MEHBOOB — ABOUT ME PAGE STYLESHEET (about.css)
+   Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
+   Guaranteed Same Colors on Light/Dark Mode | Fully Optimized Mobile UI
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
-/* --- COLOR PALETTE & SYSTEM VARIABLES --- */
+/* --- COLOR SYSTEM & DESIGN VARIABLES --- */
 :root {
-    /* Soft Mist Background Base */
+    /* Locks color scheme so browser dark mode doesn't forcefully invert */
+    color-scheme: light;
+
+    /* Soft Pearl Mist Base (No flat white) */
     --bg-base: #f7f4fc;
     --bg-surface: #efe9f8;
-    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg-card: rgba(255, 255, 255, 0.92);
     --bg-card-hover: #ffffff;
     
-    /* Deep Rich Contrast */
+    /* Deep Rich Contrast Elements */
     --dark-surface: #150e26;
     --dark-card: #1f1438;
     
@@ -46,7 +49,8 @@
 
     --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
     --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
-    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.15);
+    --shadow-glow: 0 10px 30px rgba(225, 29, 72, 0.30);
 
     --radius-sm: 10px;
     --radius-md: 16px;
@@ -64,6 +68,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -72,6 +77,7 @@ body {
     color: var(--text-body);
     line-height: 1.65;
     overflow-x: hidden;
+    width: 100%;
     background-image: 
         radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
         radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
@@ -119,7 +125,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 244, 252, 0.88);
+    background: rgba(247, 244, 252, 0.90);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
@@ -156,6 +162,7 @@ a {
     font-size: 0.9rem;
     font-weight: 700;
     position: relative;
+    padding: 6px 0;
 }
 
 .nav-menu a:hover,
@@ -166,7 +173,7 @@ a {
 .nav-menu a.active::after {
     content: '';
     position: absolute;
-    bottom: -6px;
+    bottom: -4px;
     left: 0;
     width: 100%;
     height: 2.5px;
@@ -179,8 +186,9 @@ a {
     background: none;
     border: none;
     color: var(--text-heading);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     cursor: pointer;
+    line-height: 1;
 }
 
 /* =========================================================
@@ -188,7 +196,7 @@ a {
 ========================================================= */
 .about-hero {
     position: relative;
-    padding: 100px 7% 90px;
+    padding: 95px 7% 85px;
     text-align: center;
 }
 
@@ -200,10 +208,10 @@ a {
 .about-hero h1 {
     margin: 18px 0 24px;
     color: var(--text-heading);
-    font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
     font-weight: 900;
     line-height: 1.1;
-    letter-spacing: -1.8px;
+    letter-spacing: -1.6px;
 }
 
 .about-hero h1 span {
@@ -225,7 +233,7 @@ a {
    MY STORY SECTION
 ========================================================= */
 .about-story {
-    padding: 100px 7%;
+    padding: 95px 7%;
     background: rgba(255, 255, 255, 0.45);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -236,25 +244,25 @@ a {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 65px;
+    gap: 60px;
     align-items: center;
 }
 
 .story-text p {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     color: var(--text-body);
-    font-size: 1.05rem;
+    font-size: 1.06rem;
     line-height: 1.85;
 }
 
 .story-highlight {
     display: grid;
-    gap: 20px;
+    gap: 18px;
 }
 
 /* Story Highlight Cards */
 .highlight-card {
-    padding: 30px;
+    padding: 28px 30px;
     background: #ffffff;
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
@@ -277,7 +285,7 @@ a {
 }
 
 .highlight-card:hover {
-    transform: translateY(-5px) translateX(4px);
+    transform: translateY(-4px) translateX(4px);
     border-color: rgba(124, 58, 237, 0.4);
     box-shadow: var(--shadow-prominent);
 }
@@ -287,7 +295,6 @@ a {
 }
 
 .highlight-card span {
-    display: inline-block;
     width: 38px;
     height: 38px;
     border-radius: 10px;
@@ -298,6 +305,7 @@ a {
     display: grid;
     place-items: center;
     margin-bottom: 12px;
+    transition: var(--transition);
 }
 
 .highlight-card:hover span {
@@ -306,7 +314,7 @@ a {
 }
 
 .highlight-card h3 {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: var(--text-heading);
     font-size: 1.3rem;
     font-weight: 900;
@@ -314,15 +322,15 @@ a {
 
 .highlight-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     line-height: 1.65;
 }
 
 /* =========================================================
-   JOURNEY SECTION (Continuous Learning Timeline)
+   JOURNEY SECTION (Continuous Learning Roadmap)
 ========================================================= */
 .journey-section {
-    padding: 100px 7%;
+    padding: 95px 7%;
     background: rgba(239, 233, 248, 0.5);
     border-bottom: 1px solid var(--border-subtle);
 }
@@ -368,6 +376,7 @@ a {
     font-weight: 900;
     color: var(--purple-primary);
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .journey-item:hover .journey-number {
@@ -390,10 +399,10 @@ a {
 }
 
 /* =========================================================
-   TECHNOLOGIES & TOOLS (Eye-Catching Tech Grid)
+   TECHNOLOGIES & TOOLS (App-like Tech Cards)
 ========================================================= */
 .about-tech {
-    padding: 105px 7%;
+    padding: 100px 7%;
 }
 
 .tech-grid {
@@ -405,7 +414,7 @@ a {
 }
 
 .tech-card {
-    padding: 32px 26px;
+    padding: 30px 24px;
     background: #ffffff;
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
@@ -428,7 +437,7 @@ a {
 }
 
 .tech-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: rgba(124, 58, 237, 0.4);
     box-shadow: var(--shadow-prominent);
 }
@@ -448,7 +457,7 @@ a {
     font-weight: 900;
     display: grid;
     place-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     transition: var(--transition);
 }
 
@@ -474,7 +483,7 @@ a {
    VALUES SECTION (My Approach)
 ========================================================= */
 .values-section {
-    padding: 100px 7%;
+    padding: 95px 7%;
     background: rgba(239, 233, 248, 0.5);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -489,7 +498,7 @@ a {
 }
 
 .value-card {
-    padding: 34px 28px;
+    padding: 34px 26px;
     background: #ffffff;
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
@@ -498,15 +507,15 @@ a {
 }
 
 .value-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
     border-color: rgba(225, 29, 72, 0.4);
     box-shadow: var(--shadow-prominent);
 }
 
 .value-card h3 {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--text-heading);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 900;
 }
 
@@ -521,12 +530,12 @@ a {
 ========================================================= */
 .btn {
     min-height: 52px;
-    padding: 0 30px;
+    padding: 0 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 800;
     transition: var(--transition);
 }
@@ -534,20 +543,20 @@ a {
 .btn-primary {
     color: var(--text-white);
     background: var(--grad-primary);
-    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.28);
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.30);
 }
 
 .btn-primary:hover {
     background: var(--grad-hover);
     transform: translateY(-3px);
-    box-shadow: 0 15px 32px rgba(225, 29, 72, 0.4);
+    box-shadow: 0 15px 35px rgba(225, 29, 72, 0.48);
 }
 
 /* =========================================================
-   FINAL CALL TO ACTION (DEEP RICH DARK CONTRAST BOX)
+   FINAL CALL TO ACTION (DEEP PLUM CONTRAST BOX)
 ========================================================= */
 .cta-section {
-    padding: 70px 7% 105px;
+    padding: 65px 7% 100px;
 }
 
 .cta-box {
@@ -587,7 +596,7 @@ a {
    FOOTER (DEEP MIDNIGHT PLUM)
 ========================================================= */
 .footer {
-    padding: 70px 7% 30px;
+    padding: 65px 7% 30px;
     background: #120b22;
     border-top: 1px solid var(--border-subtle);
     color: var(--text-white);
@@ -649,7 +658,7 @@ a {
 }
 
 /* =========================================================
-   RESPONSIVENESS (LAPTOPS, TABLETS & PHONES)
+   COMPREHENSIVE RESPONSIVENESS (Laptops, Tablets & Phones)
 ========================================================= */
 
 /* --- TABLETS & SMALL LAPTOPS (<= 1024px) --- */
@@ -688,23 +697,26 @@ a {
         display: flex;
     }
 
-    .about-hero,
+    .about-hero {
+        padding: 60px 6% 65px;
+    }
+
     .about-story,
     .journey-section,
     .about-tech,
     .values-section {
-        padding: 75px 6%;
+        padding: 65px 6%;
     }
 
     .journey-item {
-        grid-template-columns: 50px 1fr;
+        grid-template-columns: 48px 1fr;
         padding: 22px 20px;
         gap: 16px;
     }
 
     .journey-number {
-        width: 45px;
-        height: 45px;
+        width: 44px;
+        height: 44px;
         font-size: 1rem;
         border-radius: 12px;
     }
@@ -715,25 +727,68 @@ a {
     }
 }
 
-/* --- SMALL PHONES (<= 480px) --- */
+/* --- SMALL MOBILE PHONES (<= 480px) --- */
 @media (max-width: 480px) {
-    .about-hero {
-        padding: 60px 6% 65px;
-    }
-
     .about-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
         letter-spacing: -1px;
     }
 
-    .tech-grid,
-    .values-grid {
-        grid-template-columns: 1fr;
+    .about-hero p {
+        font-size: 1rem;
     }
 
-    .journey-item {
-        grid-template-columns: 1fr;
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .story-text p {
+        font-size: 0.98rem;
+    }
+
+    /* 2-Column Clean Mobile Tech Cards */
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+    }
+
+    .tech-card {
+        padding: 18px 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .tech-card span {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+
+    .tech-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+    }
+
+    .tech-card p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    /* Values Grid on Mobile */
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .value-card {
+        padding: 24px 20px;
+    }
+
+    /* Journey Roadmap on Small Mobile */
+    .journey-item {
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        padding: 18px 16px;
     }
 
     .journey-number {
@@ -742,12 +797,21 @@ a {
         font-size: 0.9rem;
     }
 
+    .journey-item h3 {
+        font-size: 1.15rem;
+    }
+
+    .journey-item p {
+        font-size: 0.88rem;
+    }
+
     .cta-box {
-        padding: 50px 20px;
+        padding: 45px 18px;
+        border-radius: 24px;
     }
 
     .cta-box h2 {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
 
     .btn {

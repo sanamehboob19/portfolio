@@ -10,6 +10,8 @@
     <meta name="description"
         content="Vector Clock is a personal Android application featuring alarm, timer and stopwatch functionality, built by Sana Mehboob.">
 
+    <meta name="color-scheme" content="light">
+
     <link rel="stylesheet" href="vector-clock.css">
 </head>
 
@@ -22,7 +24,7 @@
         <div class="nav-container">
 
             <a href="index.html" class="logo">
-                Sana.
+                Sana<span>.</span>
             </a>
 
             <button class="menu-toggle" aria-label="Toggle navigation">
@@ -32,37 +34,14 @@
             <nav>
                 <ul class="nav-menu">
 
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-
-                    <li>
-                        <a href="projects.html" class="active">Projects</a>
-                    </li>
-
-                    <li>
-                        <a href="apps.html">Apps</a>
-                    </li>
-
-                    <li>
-                        <a href="skills.html">Skills</a>
-                    </li>
-
-                    <li>
-                        <a href="experience.html">Experience</a>
-                    </li>
-
-                    <li>
-                        <a href="teaching.html">Teaching</a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="contact.html">Contact</a></li>
 
                 </ul>
             </nav>
@@ -118,38 +97,28 @@
                 </div>
 
 
+                <!-- HERO PHONE WITH REAL IMAGE -->
                 <div class="project-hero-visual">
 
                     <div class="app-device">
 
                         <div class="device-screen">
 
-                            <span class="device-label">
-                                VECTOR CLOCK
-                            </span>
+                            <img src="images/clock-hero.jpeg" 
+                                 alt="Vector Clock Hero App Screen" 
+                                 class="hero-mockup-img"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
 
-                            <div class="clock-display">
-                                10:24
-                            </div>
-
-                            <div class="clock-date">
-                                TIME • TIMER • ALARM
-                            </div>
-
-                            <div class="clock-actions">
-
-                                <span>
-                                    Alarm
-                                </span>
-
-                                <span>
-                                    Timer
-                                </span>
-
-                                <span>
-                                    Stopwatch
-                                </span>
-
+                            <!-- Fallback if hero image is not yet in folder -->
+                            <div class="device-screen-fallback" style="display:none;">
+                                <span class="device-label">VECTOR CLOCK</span>
+                                <div class="clock-display">10:24</div>
+                                <div class="clock-date">TIME • TIMER • ALARM</div>
+                                <div class="clock-actions">
+                                    <span>Alarm</span>
+                                    <span>Timer</span>
+                                    <span>Stopwatch</span>
+                                </div>
                             </div>
 
                         </div>
@@ -170,54 +139,23 @@
             <div class="meta-container">
 
                 <div class="meta-item">
-
-                    <span>
-                        PLATFORM
-                    </span>
-
-                    <strong>
-                        Android
-                    </strong>
-
+                    <span>PLATFORM</span>
+                    <strong>Android</strong>
                 </div>
 
-
                 <div class="meta-item">
-
-                    <span>
-                        DEVICES
-                    </span>
-
-                    <strong>
-                        Android & Amazon Fire
-                    </strong>
-
+                    <span>DEVICES</span>
+                    <strong>Android & Amazon Fire</strong>
                 </div>
 
-
                 <div class="meta-item">
-
-                    <span>
-                        VERSION
-                    </span>
-
-                    <strong>
-                        0.2
-                    </strong>
-
+                    <span>VERSION</span>
+                    <strong>0.2</strong>
                 </div>
 
-
                 <div class="meta-item">
-
-                    <span>
-                        TYPE
-                    </span>
-
-                    <strong>
-                        Productivity / Utility
-                    </strong>
-
+                    <span>TYPE</span>
+                    <strong>Productivity / Utility</strong>
                 </div>
 
             </div>
@@ -273,6 +211,96 @@
         </section>
 
 
+        <!-- ================= AT LEAST 8 IMAGES SHOWCASE GALLERY ================= -->
+
+        <section class="app-screens-showcase">
+
+            <div class="screens-container">
+
+                <div class="screens-heading">
+                    <div>
+                        <span class="section-label">APPLICATION INTERFACE</span>
+                        <h2>Interactive Screens <span>(Views)</span></h2>
+                    </div>
+                    <div class="swipe-hint">
+                        Swipe / Scroll ➔
+                    </div>
+                </div>
+
+                <!-- 8 SCREENSHOTS HORIZONTAL TRACK -->
+                <div class="screens-track">
+
+                    <!-- Screen 01 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-1.jpeg" alt="01 Digital Clock" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/f43f5e?text=01+Digital+Clock';">
+                        </div>
+                        <span class="screen-caption">01 • Digital Clock</span>
+                    </div>
+
+                    <!-- Screen 02 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-2.jpeg" alt="02 Alarm Scheduler" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/7c3aed?text=02+Alarm+Scheduler';">
+                        </div>
+                        <span class="screen-caption">02 • Alarm Scheduler</span>
+                    </div>
+
+                    <!-- Screen 03 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-3.jpeg" alt="03 Ringing and Snooze" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/f43f5e?text=03+Ringing+Screen';">
+                        </div>
+                        <span class="screen-caption">03 • Ringing & Snooze</span>
+                    </div>
+
+                    <!-- Screen 04 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-4.jpeg" alt="04 Countdown Timer" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/7c3aed?text=04+Timer+Mode';">
+                        </div>
+                        <span class="screen-caption">04 • Countdown Timer</span>
+                    </div>
+
+                    <!-- Screen 05 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-5.jpeg" alt="05 Lap Stopwatch" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/f43f5e?text=05+Stopwatch+Lap';">
+                        </div>
+                        <span class="screen-caption">05 • Lap Stopwatch</span>
+                    </div>
+
+                    <!-- Screen 06 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-6.jpeg" alt="06 Amazon Fire Mode" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/7c3aed?text=06+Fire+Tablet+UI';">
+                        </div>
+                        <span class="screen-caption">06 • Amazon Fire Mode</span>
+                    </div>
+
+                    <!-- Screen 07 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-7.jpeg" alt="07 Dark AMOLED Theme" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/f43f5e?text=07+AMOLED+Dark';">
+                        </div>
+                        <span class="screen-caption">07 • Dark / AMOLED UI</span>
+                    </div>
+
+                    <!-- Screen 08 -->
+                    <div class="screen-card">
+                        <div class="screen-chassis">
+                            <img src="images/clock-8.jpeg" alt="08 Custom Settings" class="screen-img" onerror="this.src='https://placehold.co/240x480/140d24/7c3aed?text=08+Preferences';">
+                        </div>
+                        <span class="screen-caption">08 • Custom Settings</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- ================= FEATURES ================= -->
 
         <section class="features-section">
@@ -296,74 +324,27 @@
                 <div class="features-grid">
 
                     <article class="feature-card">
-
-                        <span class="feature-number">
-                            01
-                        </span>
-
-                        <h3>
-                            Alarm
-                        </h3>
-
-                        <p>
-                            Set alarms for scheduled times and manage
-                            everyday reminders.
-                        </p>
-
+                        <span class="feature-number">01</span>
+                        <h3>Alarm</h3>
+                        <p>Set alarms for scheduled times and manage everyday reminders.</p>
                     </article>
 
-
                     <article class="feature-card">
-
-                        <span class="feature-number">
-                            02
-                        </span>
-
-                        <h3>
-                            Timer
-                        </h3>
-
-                        <p>
-                            Use a countdown timer for tasks, activities,
-                            study sessions, and everyday routines.
-                        </p>
-
+                        <span class="feature-number">02</span>
+                        <h3>Timer</h3>
+                        <p>Use a countdown timer for tasks, activities, study sessions, and everyday routines.</p>
                     </article>
 
-
                     <article class="feature-card">
-
-                        <span class="feature-number">
-                            03
-                        </span>
-
-                        <h3>
-                            Stopwatch
-                        </h3>
-
-                        <p>
-                            Track elapsed time when precise timing is
-                            needed.
-                        </p>
-
+                        <span class="feature-number">03</span>
+                        <h3>Stopwatch</h3>
+                        <p>Track elapsed time when precise timing is needed.</p>
                     </article>
 
-
                     <article class="feature-card">
-
-                        <span class="feature-number">
-                            04
-                        </span>
-
-                        <h3>
-                            Device Support
-                        </h3>
-
-                        <p>
-                            Developed with support for Android devices
-                            as well as Amazon Fire hardware.
-                        </p>
-
+                        <span class="feature-number">04</span>
+                        <h3>Device Support</h3>
+                        <p>Developed with support for Android devices as well as Amazon Fire hardware.</p>
                     </article>
 
                 </div>
@@ -402,92 +383,35 @@
                 <div class="development-list">
 
                     <div class="development-item">
-
-                        <span>
-                            01
-                        </span>
-
+                        <span>01</span>
                         <div>
-
-                            <h3>
-                                Planning
-                            </h3>
-
-                            <p>
-                                Defining the core functionality and
-                                keeping the application focused on
-                                practical use.
-                            </p>
-
+                            <h3>Planning</h3>
+                            <p>Defining the core functionality and keeping the application focused on practical use.</p>
                         </div>
-
                     </div>
 
-
                     <div class="development-item">
-
-                        <span>
-                            02
-                        </span>
-
+                        <span>02</span>
                         <div>
-
-                            <h3>
-                                Development
-                            </h3>
-
-                            <p>
-                                Implementing the application's core
-                                time-related functionality and user
-                                interface.
-                            </p>
-
+                            <h3>Development</h3>
+                            <p>Implementing the application's core time-related functionality and user interface.</p>
                         </div>
-
                     </div>
 
-
                     <div class="development-item">
-
-                        <span>
-                            03
-                        </span>
-
+                        <span>03</span>
                         <div>
-
-                            <h3>
-                                Testing
-                            </h3>
-
-                            <p>
-                                Testing the application across supported
-                                Android and Amazon Fire environments.
-                            </p>
-
+                            <h3>Testing</h3>
+                            <p>Testing the application across supported Android and Amazon Fire environments.</p>
                         </div>
-
                     </div>
 
-
                     <div class="development-item">
-
-                        <span>
-                            04
-                        </span>
-
+                        <span>04</span>
                         <div>
-
-                            <h3>
-                                Publishing
-                            </h3>
-
-                            <p>
-                                Preparing and publishing the application
-                                for users through Google Play.
-                            </p>
-
+                            <h3>Publishing</h3>
+                            <p>Preparing and publishing the application for users through Google Play.</p>
                         </div>
-
                     </div>
 
                 </div>
@@ -514,27 +438,11 @@
 
 
                 <div class="technology-list">
-
-                    <span>
-                        Android
-                    </span>
-
-                    <span>
-                        Kotlin
-                    </span>
-
-                    <span>
-                        Android Studio
-                    </span>
-
-                    <span>
-                        Git
-                    </span>
-
-                    <span>
-                        GitHub
-                    </span>
-
+                    <span>Android</span>
+                    <span>Kotlin</span>
+                    <span>Android Studio</span>
+                    <span>Git</span>
+                    <span>GitHub</span>
                 </div>
 
             </div>
@@ -624,46 +532,19 @@
         <div class="footer-container">
 
             <div class="footer-brand">
-
-                <a href="index.html">
-                    Sana.
-                </a>
-
-                <p>
-                    Mobile App Developer building practical
-                    digital experiences.
-                </p>
-
+                <a href="index.html">Sana.</a>
+                <p>Mobile App Developer building practical digital experiences.</p>
             </div>
-
 
             <div class="footer-links">
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="projects.html">
-                    Projects
-                </a>
-
-                <a href="apps.html">
-                    Apps
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="apps.html">Apps</a>
+                <a href="contact.html">Contact</a>
             </div>
 
-
             <div class="footer-copy">
-
-                <p>
-                    © 2026 Sana Mehboob
-                </p>
-
+                <p>© 2026 Sana Mehboob</p>
             </div>
 
         </div>

@@ -1,24 +1,23 @@
 /* =========================================================
    SANA MEHBOOB — JIGSAW PUZZLE CASE STUDY (jigsaw-puzzle.css)
    Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
-   Matches All Portfolio Pages | 100% Fully Responsive
+   Includes 8 Real Screenshots Showcase Gallery | 100% Fully Responsive
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 /* --- COLOR SYSTEM & DESIGN VARIABLES --- */
 :root {
-    /* Soft Pearl Mist Base (No flat white) */
+    color-scheme: light;
+
     --bg-base: #f7f4fc;
     --bg-surface: #efe9f8;
     --bg-card: rgba(255, 255, 255, 0.90);
     --bg-card-hover: #ffffff;
     
-    /* Deep Rich Contrast Elements */
     --dark-surface: #150e26;
     --dark-card: #1c1236;
     
-    /* Royal Purple & Crimson System */
     --purple-primary: #7c3aed;
     --purple-light: #a78bfa;
     --purple-soft: rgba(124, 58, 237, 0.1);
@@ -27,19 +26,16 @@
     --crimson-rose: #f43f5e;
     --crimson-soft: rgba(225, 29, 72, 0.1);
     
-    /* Gradients */
     --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
     --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
     --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
     --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
     
-    /* Typography Colors */
     --text-heading: #1a122c;
     --text-body: #504663;
     --text-muted: #796e8e;
     --text-white: #ffffff;
 
-    /* Borders & Shadows */
     --border-subtle: #e3d8f1;
     --border-hover: rgba(225, 29, 72, 0.35);
     --border-accent: rgba(124, 58, 237, 0.35);
@@ -65,6 +61,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -73,6 +70,7 @@ body {
     color: var(--text-body);
     line-height: 1.65;
     overflow-x: hidden;
+    width: 100%;
     background-image: 
         radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
         radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
@@ -97,7 +95,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 244, 252, 0.88);
+    background: rgba(247, 244, 252, 0.90);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
@@ -117,6 +115,10 @@ ul {
     font-weight: 900;
     letter-spacing: -0.5px;
     color: var(--text-heading);
+}
+
+.logo span {
+    color: var(--crimson-primary);
 }
 
 .nav-menu {
@@ -154,7 +156,7 @@ ul {
     background: none;
     border: none;
     color: var(--text-heading);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     cursor: pointer;
 }
 
@@ -257,7 +259,7 @@ ul {
 }
 
 /* =========================================================
-   HERO VISUAL (INTERACTIVE FLOATING PUZZLE PIECES)
+   HERO DEVICE VISUAL (PHONE FRAME WITH REAL IMAGE)
 ========================================================= */
 .project-hero-visual {
     display: flex;
@@ -265,26 +267,52 @@ ul {
     align-items: center;
 }
 
-.puzzle-visual {
+.app-device {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 115px);
-    grid-template-rows: repeat(2, 115px);
-    gap: 16px;
-    padding: 26px;
+    width: 285px;
     background: #140d24;
     border: 8px solid #23193d;
     border-radius: 44px;
+    padding: 12px;
     box-shadow: 
-        0 25px 60px rgba(35, 15, 65, 0.25),
+        0 25px 60px rgba(35, 15, 65, 0.28),
         0 0 0 1px rgba(255, 255, 255, 0.08);
+    animation: floatDevice 6s ease-in-out infinite;
+}
+
+.device-screen {
+    background: linear-gradient(180deg, #1c1333 0%, #100a1f 100%);
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-mockup-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 26px;
+}
+
+/* Fallback Animated Puzzle Pieces */
+.puzzle-visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 95px);
+    grid-template-rows: repeat(2, 95px);
+    gap: 12px;
+    padding: 20px;
 }
 
 .puzzle-piece {
-    border-radius: 20px;
+    border-radius: 16px;
     display: grid;
     place-items: center;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 900;
     color: var(--text-white);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -312,11 +340,10 @@ ul {
     animation: floatPiece4 5.8s ease-in-out infinite;
 }
 
-.puzzle-piece:hover {
-    transform: scale(1.1) rotate(6deg);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 12px 30px rgba(225, 29, 72, 0.45);
-    z-index: 5;
+@keyframes floatDevice {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
 }
 
 @keyframes floatPiece1 {
@@ -420,11 +447,134 @@ ul {
 }
 
 /* =========================================================
+   8-SCREENSHOTS INTERACTIVE SHOWCASE GALLERY (DEDICATED SECTION)
+========================================================= */
+.app-screens-showcase {
+    padding: 95px 0;
+    background: rgba(239, 233, 248, 0.65);
+    border-bottom: 1px solid var(--border-subtle);
+    overflow: hidden;
+}
+
+.screens-container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+.screens-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.screens-heading h2 {
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -0.8px;
+    margin-top: 6px;
+}
+
+.screens-heading h2 span {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.swipe-hint {
+    padding: 6px 14px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    border-radius: var(--radius-full);
+    font-size: 0.76rem;
+    font-weight: 900;
+    color: var(--purple-primary);
+    letter-spacing: 0.8px;
+}
+
+/* 8 Screen Horizontal Scroll Track */
+.screens-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 4px 25px;
+}
+
+/* Sleek Scrollbar */
+.screens-track::-webkit-scrollbar {
+    height: 7px;
+}
+
+.screens-track::-webkit-scrollbar-track {
+    background: rgba(20, 13, 38, 0.08);
+    border-radius: 10px;
+}
+
+.screens-track::-webkit-scrollbar-thumb {
+    background: var(--grad-primary);
+    border-radius: 10px;
+}
+
+/* Individual Screen Chassis */
+.screen-card {
+    flex-shrink: 0;
+    width: 215px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.screen-card:hover {
+    transform: translateY(-8px);
+}
+
+.screen-chassis {
+    width: 100%;
+    height: 420px;
+    background: #140d24;
+    border: 6px solid #23193d;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(25, 10, 45, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.screen-card:hover .screen-chassis {
+    border-color: rgba(225, 29, 72, 0.45);
+    box-shadow: var(--shadow-prominent);
+}
+
+.screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.screen-caption {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    text-align: center;
+    letter-spacing: -0.2px;
+}
+
+/* =========================================================
    FEATURES SECTION (4-COLUMN GRID)
 ========================================================= */
 .features-section {
     padding: 105px 0;
-    background: rgba(239, 233, 248, 0.6);
     border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -868,6 +1018,14 @@ ul {
     .development-content p {
         margin: 0 auto;
     }
+
+    .screen-card {
+        width: 180px;
+    }
+
+    .screen-chassis {
+        height: 350px;
+    }
 }
 
 /* --- MOBILE LANDSCAPE & TABLETS (<= 768px) --- */
@@ -918,6 +1076,20 @@ ul {
         gap: 16px;
     }
 
+    .screen-card {
+        width: 155px;
+    }
+
+    .screen-chassis {
+        height: 300px;
+        border-radius: 20px;
+        border-width: 4px;
+    }
+
+    .screen-caption {
+        font-size: 0.76rem;
+    }
+
     .project-navigation-container {
         grid-template-columns: 1fr;
     }
@@ -945,16 +1117,21 @@ ul {
         justify-content: center;
     }
 
-    .puzzle-visual {
-        grid-template-columns: repeat(2, 95px);
-        grid-template-rows: repeat(2, 95px);
-        gap: 12px;
-        padding: 18px;
+    .app-device {
+        width: 250px;
     }
 
-    .puzzle-piece {
-        font-size: 1.15rem;
-        border-radius: 16px;
+    .screens-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .screen-card {
+        width: 135px;
+    }
+
+    .screen-chassis {
+        height: 260px;
     }
 
     .section-heading h2,

@@ -1,24 +1,23 @@
 /* =========================================================
    SANA MEHBOOB — PROJECTS PAGE STYLESHEET (projects.css)
    Theme: Dual-Tone Hybrid (Soft Pearl Mist + Deep Plum & Crimson)
-   Matches index.css & about.css | 100% Fully Responsive
+   Includes 8 In-App Mockup Strips on Cards | 100% Fully Responsive
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
-/* --- COLOR PALETTE & SYSTEM VARIABLES --- */
+/* --- COLOR SYSTEM & DESIGN VARIABLES --- */
 :root {
-    /* Soft Mist Background Base (No flat white) */
+    color-scheme: light;
+
     --bg-base: #f7f4fc;
     --bg-surface: #efe9f8;
-    --bg-card: rgba(255, 255, 255, 0.90);
+    --bg-card: rgba(255, 255, 255, 0.92);
     --bg-card-hover: #ffffff;
     
-    /* Deep Rich Contrast Accents */
     --dark-surface: #150e26;
-    --dark-card: #1d1236;
+    --dark-card: #1c1236;
     
-    /* Royal Purple & Crimson System */
     --purple-primary: #7c3aed;
     --purple-light: #a78bfa;
     --purple-soft: rgba(124, 58, 237, 0.1);
@@ -27,27 +26,23 @@
     --crimson-rose: #f43f5e;
     --crimson-soft: rgba(225, 29, 72, 0.1);
     
-    /* Gradients */
     --grad-primary: linear-gradient(135deg, #7c3aed 0%, #e11d48 100%);
     --grad-hover: linear-gradient(135deg, #6d28d9 0%, #be123c 100%);
     --grad-text: linear-gradient(135deg, #6d28d9 0%, #e11d48 85%);
     --grad-dark: linear-gradient(145deg, #170e2d 0%, #281036 100%);
     
-    /* Typography */
     --text-heading: #1a122c;
     --text-body: #504663;
     --text-muted: #796e8e;
     --text-white: #ffffff;
 
-    /* Borders & Shadows */
     --border-subtle: #e3d8f1;
     --border-hover: rgba(225, 29, 72, 0.35);
     --border-accent: rgba(124, 58, 237, 0.35);
 
     --shadow-sm: 0 4px 18px rgba(50, 20, 90, 0.05);
     --shadow-md: 0 12px 35px rgba(60, 25, 100, 0.08);
-    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.14);
-    --shadow-glow: 0 10px 30px rgba(225, 29, 72, 0.28);
+    --shadow-prominent: 0 18px 45px rgba(124, 58, 237, 0.15);
 
     --radius-sm: 10px;
     --radius-md: 16px;
@@ -65,6 +60,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -73,6 +69,7 @@ body {
     color: var(--text-body);
     line-height: 1.65;
     overflow-x: hidden;
+    width: 100%;
     background-image: 
         radial-gradient(circle at 12% 14%, rgba(124, 58, 237, 0.12), transparent 42%),
         radial-gradient(circle at 88% 28%, rgba(225, 29, 72, 0.10), transparent 45%),
@@ -97,7 +94,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247, 244, 252, 0.88);
+    background: rgba(247, 244, 252, 0.90);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-subtle);
@@ -117,6 +114,10 @@ ul {
     font-weight: 900;
     letter-spacing: -0.5px;
     color: var(--text-heading);
+}
+
+.logo span {
+    color: var(--crimson-primary);
 }
 
 .nav-menu {
@@ -154,7 +155,7 @@ ul {
     background: none;
     border: none;
     color: var(--text-heading);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     cursor: pointer;
 }
 
@@ -208,16 +209,16 @@ ul {
     max-width: 580px;
 }
 
-/* Hero Side Stat Box */
+/* Flexible Hero Side Badge (Supports 2, 5, 10+ Projects) */
 .hero-side {
     background: #ffffff;
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: 38px 34px;
+    padding: 36px 32px;
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     position: relative;
 }
 
@@ -238,8 +239,8 @@ ul {
     gap: 18px;
 }
 
-.project-count strong {
-    font-size: 3.4rem;
+.count-badge {
+    font-size: 2.8rem;
     font-weight: 900;
     line-height: 1;
     background: var(--grad-text);
@@ -248,7 +249,7 @@ ul {
 }
 
 .project-count span {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--text-heading);
     line-height: 1.35;
@@ -270,7 +271,7 @@ ul {
    PROJECTS SHOWCASE SECTION
 ========================================================= */
 .projects-section {
-    padding: 105px 0;
+    padding: 100px 0;
 }
 
 .section-container {
@@ -279,7 +280,7 @@ ul {
 }
 
 .section-intro {
-    margin-bottom: 60px;
+    margin-bottom: 55px;
     max-width: 650px;
 }
 
@@ -300,31 +301,34 @@ ul {
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 55px;
 }
 
 /* =========================================================
-   PROMINENT PROJECT CARD (Vector Clock & Jigsaw Puzzle)
+   PROJECT CARD (EXPANDED WITH 8-SCREEN PREVIEW STRIP)
 ========================================================= */
 .project-card {
     background: var(--bg-card);
     border: 1.5px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: 44px;
+    padding: 42px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    min-width: 0;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     background: var(--bg-card-hover);
     border-color: rgba(124, 58, 237, 0.4);
     box-shadow: var(--shadow-prominent);
 }
 
-/* Subtle Top Accent Bar */
 .project-card::before {
     content: '';
     position: absolute;
@@ -341,7 +345,6 @@ ul {
     opacity: 1;
 }
 
-/* Badge Number in Corner */
 .project-number {
     position: absolute;
     top: 24px;
@@ -352,14 +355,15 @@ ul {
     user-select: none;
 }
 
+/* Top Split: Info on one side, Large Mockup on the other */
 .project-main {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 50px;
     align-items: center;
+    min-width: 0;
 }
 
-/* Reverse Card Layout for Jigsaw Puzzle */
 .reverse-card .project-main {
     grid-template-columns: 0.85fr 1.15fr;
 }
@@ -389,7 +393,6 @@ ul {
     margin-bottom: 24px;
 }
 
-/* Tech Tags Pills */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -406,15 +409,8 @@ ul {
     font-weight: 800;
     color: var(--text-heading);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: var(--transition);
 }
 
-.tech-tags span:hover {
-    border-color: var(--purple-primary);
-    color: var(--purple-primary);
-}
-
-/* Action Buttons */
 .project-actions {
     display: flex;
     flex-wrap: wrap;
@@ -426,9 +422,9 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
+    padding: 13px 26px;
     border-radius: var(--radius-md);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 800;
     transition: var(--transition);
 }
@@ -442,7 +438,7 @@ ul {
 .primary-link:hover {
     background: var(--grad-hover);
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(225, 29, 72, 0.4);
+    box-shadow: 0 12px 28px rgba(225, 29, 72, 0.42);
 }
 
 .secondary-link {
@@ -455,11 +451,10 @@ ul {
     border-color: var(--purple-primary);
     color: var(--purple-primary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
-/* =========================================================
-   PROJECT VISUALS (INTERACTIVE MOCKUPS)
-========================================================= */
+/* Primary Card Visual Mockup */
 .project-visual {
     position: relative;
     border-radius: var(--radius-lg);
@@ -469,102 +464,105 @@ ul {
     justify-content: center;
     align-items: center;
     min-height: 280px;
-    padding: 30px;
+    max-height: 380px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(20, 10, 35, 0.2);
+    box-shadow: 0 20px 40px rgba(20, 10, 35, 0.25);
+    padding: 0;
 }
 
-.visual-glow {
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    background: radial-gradient(circle, rgba(225, 29, 72, 0.25) 0%, rgba(124, 58, 237, 0.25) 60%, transparent 80%);
-    filter: blur(35px);
-    border-radius: 50%;
-}
-
-/* Clock Display Mockup */
-.clock-display {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    background: rgba(14, 8, 26, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 22px;
-    padding: 30px 40px;
-    backdrop-filter: blur(12px);
+.project-img {
     width: 100%;
-    max-width: 320px;
-}
-
-.clock-label {
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--crimson-rose);
-}
-
-.clock-display strong {
-    display: block;
-    font-size: 3.4rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-    color: var(--text-white);
-    margin: 4px 0 16px;
-    font-variant-numeric: tabular-nums;
-    text-shadow: 0 0 25px rgba(244, 63, 94, 0.4);
-}
-
-.clock-controls {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.clock-controls span {
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    padding: 5px 12px;
-    border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.08);
-    color: #cbbde2;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Puzzle Grid Mockup */
-.puzzle-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(2, 75px);
-    grid-template-rows: repeat(2, 75px);
-    gap: 14px;
-}
-
-.puzzle-grid span {
-    display: grid;
-    place-items: center;
-    border-radius: 18px;
-    font-size: 1.6rem;
-    color: var(--text-white);
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(225, 29, 72, 0.3));
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    object-fit: cover;
     transition: var(--transition);
 }
 
-.puzzle-grid span:hover {
-    transform: scale(1.1) rotate(6deg);
-    border-color: var(--crimson-rose);
+.project-card:hover .project-img {
+    transform: scale(1.04);
+}
+
+/* =========================================================
+   8-MOCKUP SCREENSHOT PREVIEW STRIP (IN-CARD SLIDER)
+========================================================= */
+.project-preview-gallery {
+    width: 100%;
+    min-width: 0;
+    background: #140d24;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 16px 20px 20px;
+    box-shadow: 0 12px 30px rgba(18, 10, 32, 0.3);
+    overflow: hidden;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.gallery-label {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: var(--crimson-rose);
+    text-transform: uppercase;
+}
+
+.scroll-hint {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--purple-light);
+}
+
+.preview-strip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+}
+
+/* Custom Scrollbar */
+.preview-strip::-webkit-scrollbar {
+    height: 6px;
+}
+
+.preview-strip::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+
+.preview-strip::-webkit-scrollbar-thumb {
     background: var(--grad-primary);
+    border-radius: 10px;
+}
+
+.preview-shot {
+    width: 115px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    background: #1a122c;
+    transition: var(--transition);
+}
+
+.preview-shot:hover {
+    transform: scale(1.06);
+    border-color: var(--crimson-rose);
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
 }
 
 /* =========================================================
    PROJECT PHILOSOPHY
 ========================================================= */
 .project-philosophy {
-    padding: 85px 0;
+    padding: 90px 0;
     background: rgba(239, 233, 248, 0.6);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
@@ -597,10 +595,10 @@ ul {
 }
 
 /* =========================================================
-   PROJECTS CTA (DEEP PLUM CONTRAST BOX)
+   PROJECTS CTA
 ========================================================= */
 .projects-cta {
-    padding: 80px 0 110px;
+    padding: 70px 0 105px;
 }
 
 .cta-container {
@@ -611,8 +609,6 @@ ul {
     border-radius: 36px;
     padding: 80px 40px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
     box-shadow: 0 25px 65px rgba(25, 10, 45, 0.25);
 }
 
@@ -646,13 +642,13 @@ ul {
     border-radius: var(--radius-md);
     font-weight: 800;
     font-size: 0.95rem;
-    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.32);
 }
 
 .cta-button:hover {
     background: var(--grad-hover);
     transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(225, 29, 72, 0.45);
+    box-shadow: 0 15px 35px rgba(225, 29, 72, 0.48);
 }
 
 /* =========================================================
@@ -710,15 +706,12 @@ ul {
     }
 
     .hero-side {
-        max-width: 550px;
+        max-width: 520px;
         margin: 0 auto;
     }
 
-    .project-card, .reverse-card .project-main {
-        grid-template-columns: 1fr;
-    }
-
-    .project-main {
+    .project-main,
+    .reverse-card .project-main {
         grid-template-columns: 1fr;
         gap: 35px;
     }
@@ -748,11 +741,11 @@ ul {
     }
 
     .projects-hero {
-        padding: 65px 0;
+        padding: 60px 0 50px;
     }
 
     .project-card {
-        padding: 30px 24px;
+        padding: 30px 22px;
     }
 
     .project-number {
@@ -766,12 +759,9 @@ ul {
         flex-direction: column-reverse;
     }
 
-    .clock-display {
-        padding: 24px 20px;
-    }
-
-    .clock-display strong {
-        font-size: 2.6rem;
+    .preview-shot {
+        width: 100px;
+        height: 175px;
     }
 
     .footer-container {
@@ -780,34 +770,54 @@ ul {
     }
 }
 
-/* --- SMALL MOBILE SCREENS (<= 480px) --- */
+/* --- SMALL MOBILE PHONES (<= 480px) --- */
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
         letter-spacing: -1px;
     }
 
+    .hero-side {
+        padding: 24px 20px;
+    }
+
+    .count-badge {
+        font-size: 2.2rem;
+    }
+
     .section-intro h2 {
-        font-size: 2.1rem;
+        font-size: 2rem;
+    }
+
+    .project-card {
+        padding: 24px 16px;
+        border-radius: var(--radius-md);
+    }
+
+    .project-info h3 {
+        font-size: 1.5rem;
     }
 
     .project-actions {
         flex-direction: column;
         width: 100%;
+        gap: 10px;
     }
 
     .project-link {
         width: 100%;
         justify-content: center;
+        padding: 13px 20px;
     }
 
-    .puzzle-grid {
-        grid-template-columns: repeat(2, 65px);
-        grid-template-rows: repeat(2, 65px);
+    .preview-shot {
+        width: 85px;
+        height: 150px;
     }
 
     .cta-container {
-        padding: 50px 20px;
+        padding: 45px 18px;
+        border-radius: 24px;
     }
 
     .cta-container h2 {
